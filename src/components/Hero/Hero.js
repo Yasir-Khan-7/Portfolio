@@ -9,6 +9,11 @@ const HeroSection = styled.section`
   width: 100%;
   z-index: 1;
   background: ${props => props.theme.colors.background};
+  background-image: linear-gradient(
+    to bottom right,
+    ${props => props.theme.colors.background},
+    ${props => props.theme.colors.hero.accent + '10'}
+  );
   overflow: hidden;
   max-width: 100vw;
 `;
@@ -34,20 +39,25 @@ const HeroContainer = styled.div`
 
 const Greeting = styled.h1`
   color: ${props => props.theme.colors.hero.accent};
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 20px;
   animation: fadeIn 1s ease-in-out;
   position: relative;
+  display: inline-block;
+  padding: 5px 15px;
+  background: ${props => props.theme.colors.hero.accent + '15'};
+  border-radius: 4px;
+  border-left: 3px solid ${props => props.theme.colors.hero.accent};
   
   @media ${props => props.theme.breakpoints.sm} {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;
 
 const Name = styled.h2`
   color: ${props => props.theme.colors.textPrimary};
-  font-size: 4.2rem;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 700;
   margin: 0;
   line-height: 1.1;
@@ -63,7 +73,7 @@ const Name = styled.h2`
       content: '';
       position: absolute;
       width: 100%;
-      height: 0.2em;
+      height: 0.3em;
       bottom: 0.1em;
       left: 0;
       background-color: ${props => props.theme.colors.hero.accent};
@@ -73,17 +83,18 @@ const Name = styled.h2`
   }
   
   @media ${props => props.theme.breakpoints.md} {
-    font-size: 3.4rem;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
   }
   
   @media ${props => props.theme.breakpoints.sm} {
-    font-size: 2.4rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    white-space: normal;
   }
 `;
 
 const Title = styled.h3`
   color: ${props => props.theme.colors.textPrimary};
-  font-size: 3.8rem;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
   font-weight: 700;
   margin: 10px 0 20px;
   line-height: 1.1;
@@ -92,11 +103,13 @@ const Title = styled.h3`
   animation-fill-mode: both;
   
   @media ${props => props.theme.breakpoints.md} {
-    font-size: 3.2rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
   }
   
   @media ${props => props.theme.breakpoints.sm} {
-    font-size: 2.2rem;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    white-space: normal;
+    display: inline-block;
   }
 `;
 
