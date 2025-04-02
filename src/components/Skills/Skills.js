@@ -402,6 +402,7 @@ const Skills = () => {
                   { name: 'Python', level: 90, active: true },
                   { name: 'LLM & Generative AI', level: 85, active: true },
                   { name: 'Data Analysis', level: 80, active: true },
+                  { name: 'ETL Pipeline Development', level: 75, active: true },
                   { name: 'PowerBI', level: 75, active: false },
                 ].map((skill, index) => (
                   <SkillItem
@@ -430,10 +431,11 @@ const Skills = () => {
               </CategoryTitle>
               <SkillsGrid>
                 {[
+                  { name: 'HTML, CSS & JavaScript', level: 85, active: true },
                   { name: 'MySQL', level: 80, active: true },
                   { name: 'Industrial Automation', level: 85, active: true },
-                  { name: 'ETL Pipeline Development', level: 75, active: true },
-                  { name: 'HTML, CSS & JavaScript', level: 70, active: false },
+                  { name: 'Docker', level: 75, active: false },
+                  { name: 'Server Deployment', level: 70, active: false },
                 ].map((skill, index) => (
                   <SkillItem
                     key={index}
