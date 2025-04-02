@@ -64,6 +64,10 @@ const CarouselContainer = styled.div`
   width: 100%;
   padding: 20px 0;
   overflow: hidden;
+  
+  @media screen and (max-width: 768px) {
+    padding: 10px 0;
+  }
 `;
 
 const TestimonialCarousel = styled.div`
@@ -86,7 +90,11 @@ const TestimonialItem = styled.div`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 10px;
+    padding: 5px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 2px;
   }
 `;
 
@@ -111,9 +119,15 @@ const TestimonialImage = styled.img`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 12px;
+    padding: 8px;
     width: 100%;
-    border-width: 3px;
+    min-width: 300px;
+    border-width: 2px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 6px;
+    min-width: 100%;
   }
 `;
 
@@ -300,6 +314,11 @@ const ModalImage = styled.img`
   max-width: 100%;
   max-height: 85vh;
   object-fit: contain;
+  
+  @media screen and (max-width: 768px) {
+    max-height: 80vh;
+    width: auto;
+  }
 `;
 
 const CloseButton = styled.button`
@@ -441,7 +460,7 @@ const Testimonials = () => {
                   <ZoomIcon>
                     <FiZoomIn size={20} />
                   </ZoomIcon>
-                  <ClickInstruction>Click to enlarge</ClickInstruction>
+                  <ClickInstruction>Click to view full size</ClickInstruction>
                 </TestimonialImageWrapper>
               </TestimonialItem>
             ))}
