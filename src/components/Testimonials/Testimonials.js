@@ -26,14 +26,9 @@ const TestimonialsContainer = styled.section`
   padding: 150px 10%;
   position: relative;
   background: ${props => props.theme.colors.background};
-  background-image: linear-gradient(
-    to bottom,
-    #ffffff,
-    ${props => props.theme.colors.testimonials.highlight}
-  );
   
   @media screen and (max-width: 768px) {
-    padding: 100px 5%;
+    padding: 80px 5%;
   }
 `;
 
@@ -90,7 +85,7 @@ const TestimonialItem = styled.div`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 15px;
+    padding: 10px;
   }
 `;
 
@@ -113,7 +108,9 @@ const TestimonialImage = styled.img`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 10px;
+    padding: 12px;
+    width: 100%;
+    border-width: 3px;
   }
 `;
 
@@ -164,11 +161,11 @@ const CarouselButton = styled.button`
     height: 40px;
     
     &.prev {
-      left: 5px;
+      left: 10px;
     }
     
     &.next {
-      right: 5px;
+      right: 10px;
     }
   }
 `;
