@@ -26,6 +26,11 @@ const TestimonialsContainer = styled.section`
   padding: 150px 10%;
   position: relative;
   background: ${props => props.theme.colors.background};
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    ${props => props.theme.colors.testimonials.highlight}
+  );
   
   @media screen and (max-width: 768px) {
     padding: 100px 5%;
@@ -67,37 +72,48 @@ const CarouselContainer = styled.div`
 
 const TestimonialCarousel = styled.div`
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.8s ease-in-out;
 `;
 
 const TestimonialItem = styled.div`
   flex: 0 0 100%;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: scale(0.95);
-  transition: transform 0.5s ease;
+  transition: transform 0.8s ease-in-out;
   
   &.active {
     transform: scale(1);
   }
   
   @media screen and (max-width: 768px) {
-    padding: 10px;
+    padding: 15px;
   }
 `;
 
 const TestimonialImage = styled.img`
   max-width: 100%;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  width: 650px;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 2px solid ${props => props.theme.colors.testimonials.accent + '40'};
+  padding: 20px;
+  background: #ffffff;
+  transition: all 0.5s ease;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    border: 2px solid ${props => props.theme.colors.testimonials.accent};
+  }
+  
+  @media screen and (max-width: 768px) {
+    padding: 10px;
   }
 `;
 
@@ -114,13 +130,15 @@ const CarouselButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   z-index: 10;
   transition: all 0.3s ease;
+  border: 1px solid ${props => props.theme.colors.testimonials.accent + '30'};
   
   &:hover {
-    background: #f8f8f8;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: ${props => props.theme.colors.testimonials.highlight};
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid ${props => props.theme.colors.testimonials.accent};
   }
   
   &:disabled {
@@ -130,7 +148,7 @@ const CarouselButton = styled.button`
   
   svg {
     font-size: 22px;
-    color: #333;
+    color: ${props => props.theme.colors.testimonials.accent};
   }
   
   &.prev {
@@ -209,7 +227,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);
