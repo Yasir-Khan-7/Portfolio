@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FiChevronLeft, FiChevronRight, FiX, FiZoomIn } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi';
 import SectionDivider from '../SectionDivider';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -132,36 +132,6 @@ const TestimonialImage = styled.img`
     padding: 12px;
     width: 100%;
     border-width: 3px;
-  }
-`;
-
-const ZoomIcon = styled.div`
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  background: ${props => props.theme.colors.testimonials.accent};
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  pointer-events: none;
-  z-index: 5;
-  
-  ${TestimonialItem}:hover & {
-    opacity: 0.9;
-  }
-  
-  @media screen and (max-width: 768px) {
-    width: 35px;
-    height: 35px;
-    bottom: 10px;
-    right: 10px;
   }
 `;
 
@@ -442,9 +412,6 @@ const Testimonials = () => {
                     loading="lazy"
                     onClick={() => openModal(testimonial.image)}
                   />
-                  <ZoomIcon>
-                    <FiZoomIn size={20} />
-                  </ZoomIcon>
                   <ClickInstruction>Click to enlarge</ClickInstruction>
                 </TestimonialImageWrapper>
               </TestimonialItem>
