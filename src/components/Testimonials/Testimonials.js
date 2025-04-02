@@ -29,7 +29,11 @@ const TestimonialsContainer = styled.section`
   background: ${props => props.theme.colors.background};
   
   @media screen and (max-width: 768px) {
-    padding: 80px 5%;
+    padding: 80px 5% 100px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 60px 4% 80px;
   }
 `;
 
@@ -80,6 +84,11 @@ const CarouselContainer = styled.div`
   overflow: hidden;
   
   @media screen and (max-width: 768px) {
+    padding: 15px 0;
+    overflow: visible;
+  }
+  
+  @media screen and (max-width: 480px) {
     padding: 10px 0;
   }
 `;
@@ -105,6 +114,7 @@ const TestimonialItem = styled.div`
   
   @media screen and (max-width: 768px) {
     padding: 5px;
+    overflow: visible;
   }
   
   @media screen and (max-width: 480px) {
@@ -133,15 +143,17 @@ const TestimonialImage = styled.img`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 8px;
+    padding: 6px;
     width: 100%;
     min-width: 300px;
     border-width: 2px;
+    transform: scale(1.05);
   }
   
   @media screen and (max-width: 480px) {
-    padding: 6px;
+    padding: 4px;
     min-width: 100%;
+    transform: scale(1.1);
   }
 `;
 
@@ -322,6 +334,12 @@ const ModalImage = styled.img`
   @media screen and (max-width: 768px) {
     max-height: 80vh;
     width: auto;
+    transform: scale(1.05);
+  }
+  
+  @media screen and (max-width: 480px) {
+    max-height: 75vh;
+    transform: scale(1.1);
   }
 `;
 
@@ -367,15 +385,23 @@ const MobileHint = styled.div`
   color: ${props => props.theme.colors.testimonials.accent};
   font-size: 14px;
   font-weight: 500;
-  margin-top: 10px;
-  padding: 8px 16px;
+  margin: 0 auto 20px;
+  padding: 10px 16px;
   border-radius: 20px;
   background-color: ${props => props.theme.colors.testimonials.highlight};
   border: 1px solid ${props => props.theme.colors.testimonials.accent + '40'};
+  max-width: 90%;
   
   @media screen and (max-width: 768px) {
     display: block;
     animation: pulse 2s infinite;
+    font-size: 14px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    font-size: 13px;
+    padding: 8px 12px;
+    margin-bottom: 15px;
   }
   
   @keyframes pulse {
@@ -476,7 +502,7 @@ const Testimonials = () => {
         {/* Add mobile hint */}
         <MobileHint>
           <FiZoomIn style={{ marginRight: '5px', verticalAlign: 'middle' }} />
-          Tap on testimonials to view them in full screen
+          Tap to view testimonials in full screen for better readability
         </MobileHint>
 
         <CarouselContainer
