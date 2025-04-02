@@ -80,7 +80,11 @@ const CarouselContainer = styled.div`
   overflow: hidden;
   
   @media screen and (max-width: 768px) {
-    padding: 10px 0;
+    padding: 15px 0 25px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 10px 0 30px;
   }
 `;
 
@@ -104,7 +108,11 @@ const TestimonialItem = styled.div`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 10px;
+    padding: 15px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 10px 5px 20px;
   }
 `;
 
@@ -129,9 +137,15 @@ const TestimonialImage = styled.img`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 12px;
+    padding: 10px;
     width: 100%;
-    border-width: 3px;
+    border-width: 2px;
+    min-height: 180px; /* Ensure minimum height on tablets */
+  }
+  
+  @media screen and (max-width: 480px) {
+    padding: 8px;
+    min-height: 150px; /* Ensure minimum height on mobile phones */
   }
 `;
 
@@ -151,8 +165,22 @@ const ClickInstruction = styled.div`
   }
   
   @media screen and (max-width: 768px) {
-    font-size: 12px;
-    bottom: -30px;
+    opacity: 1; /* Always visible on mobile */
+    position: relative;
+    bottom: 0;
+    margin-top: 15px;
+    font-size: 14px;
+    padding: 8px 15px;
+    background-color: ${props => props.theme.colors.testimonials.highlight};
+    border-radius: 20px;
+    border: 1px solid ${props => props.theme.colors.testimonials.accent + '30'};
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media screen and (max-width: 480px) {
+    font-size: 13px;
+    margin-top: 12px;
   }
 `;
 
@@ -160,7 +188,9 @@ const TestimonialImageWrapper = styled.div`
   position: relative;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const CarouselButton = styled.button`
@@ -412,7 +442,7 @@ const Testimonials = () => {
                     loading="lazy"
                     onClick={() => openModal(testimonial.image)}
                   />
-                  <ClickInstruction>Click to enlarge</ClickInstruction>
+                  <ClickInstruction>Tap to view full testimonial</ClickInstruction>
                 </TestimonialImageWrapper>
               </TestimonialItem>
             ))}
