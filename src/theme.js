@@ -29,6 +29,10 @@ const theme = {
             accent: "#8ac926",      // Vibrant green
             highlight: "rgba(138, 201, 38, 0.1)"
         },
+        testimonials: {
+            accent: "#6a4c93",      // Purple
+            highlight: "rgba(106, 76, 147, 0.1)"
+        },
         contact: {
             accent: "#e63946",      // Bright red/pink
             highlight: "rgba(230, 57, 70, 0.1)"

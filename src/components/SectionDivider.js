@@ -28,6 +28,8 @@ const Divider = styled.div`
         return props.theme.colors.skills.accent;
       case 'projects':
         return props.theme.colors.projects.accent;
+      case 'testimonials':
+        return props.theme.colors.testimonials.accent;
       case 'contact':
         return props.theme.colors.contact.accent;
       default:
@@ -45,6 +47,8 @@ const Divider = styled.div`
         return 'rgba(255, 202, 58, 0.6)';
       case 'projects':
         return 'rgba(138, 201, 38, 0.6)';
+      case 'testimonials':
+        return 'rgba(106, 76, 147, 0.6)';
       case 'contact':
         return 'rgba(230, 57, 70, 0.6)';
       default:
