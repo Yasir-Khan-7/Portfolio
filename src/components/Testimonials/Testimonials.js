@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiX, FiZoomIn } from 'react-icons/fi';
 import SectionDivider from '../SectionDivider';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Testimonial data
 const testimonialData = [
@@ -100,6 +101,8 @@ const TestimonialImage = styled.img`
   padding: 20px;
   background: #ffffff;
   transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
   
   &:hover {
     transform: translateY(-5px);
@@ -112,6 +115,64 @@ const TestimonialImage = styled.img`
     width: 100%;
     border-width: 3px;
   }
+`;
+
+const ZoomIcon = styled.div`
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: ${props => props.theme.colors.testimonials.accent};
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 5;
+  
+  ${TestimonialItem}:hover & {
+    opacity: 0.9;
+  }
+  
+  @media screen and (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+    bottom: 10px;
+    right: 10px;
+  }
+`;
+
+const ClickInstruction = styled.div`
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: ${props => props.theme.colors.testimonials.accent};
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  ${TestimonialItem}:hover & {
+    opacity: 1;
+  }
+  
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    bottom: -30px;
+  }
+`;
+
+const TestimonialImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const CarouselButton = styled.button`
@@ -204,10 +265,84 @@ const TestimonialsSubheading = styled.p`
   }
 `;
 
+// Modal components
+const ModalOverlay = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+`;
+
+const ModalContent = styled(motion.div)`
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 95%;
+  max-height: 95vh;
+  position: relative;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 3px solid ${props => props.theme.colors.testimonials.accent};
+`;
+
+const ModalImage = styled.img`
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: ${props => props.theme.colors.testimonials.accent};
+  border: 2px solid white;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  
+  &:hover {
+    transform: scale(1.1);
+    background-color: #fff;
+    color: ${props => props.theme.colors.testimonials.accent};
+    border: 2px solid ${props => props.theme.colors.testimonials.accent};
+  }
+  
+  @media screen and (max-width: 768px) {
+    width: 36px;
+    height: 36px;
+    top: -15px;
+    right: -15px;
+    font-size: 20px;
+  }
+`;
+
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const goToPrev = () => {
     setActiveIndex((prevIndex) =>
@@ -245,6 +380,33 @@ const Testimonials = () => {
     }
   };
 
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setModalOpen(true);
+    // Prevent body scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    // Re-enable body scrolling
+    document.body.style.overflow = 'auto';
+  };
+
+  // Handle keyboard events for the modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && modalOpen) {
+        closeModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [modalOpen]);
+
   return (
     <TestimonialsContainer id="testimonials" className="section">
       <SectionDivider section="testimonials" />
@@ -269,11 +431,18 @@ const Testimonials = () => {
                 key={testimonial.id}
                 className={index === activeIndex ? 'active' : ''}
               >
-                <TestimonialImage
-                  src={testimonial.image}
-                  alt={testimonial.alt}
-                  loading="lazy"
-                />
+                <TestimonialImageWrapper>
+                  <TestimonialImage
+                    src={testimonial.image}
+                    alt={testimonial.alt}
+                    loading="lazy"
+                    onClick={() => openModal(testimonial.image)}
+                  />
+                  <ZoomIcon>
+                    <FiZoomIn size={20} />
+                  </ZoomIcon>
+                  <ClickInstruction>Click to enlarge</ClickInstruction>
+                </TestimonialImageWrapper>
               </TestimonialItem>
             ))}
           </TestimonialCarousel>
@@ -293,6 +462,34 @@ const Testimonials = () => {
           ))}
         </DotContainer>
       </div>
+
+      {/* Modal for enlarged testimonial view */}
+      <AnimatePresence>
+        {modalOpen && (
+          <ModalOverlay
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeModal}
+          >
+            <ModalContent
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ModalImage
+                src={selectedImage}
+                alt="Enlarged testimonial"
+              />
+              <CloseButton onClick={closeModal}>
+                <FiX />
+              </CloseButton>
+            </ModalContent>
+          </ModalOverlay>
+        )}
+      </AnimatePresence>
     </TestimonialsContainer>
   );
 };
