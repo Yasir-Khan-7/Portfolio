@@ -1,0 +1,2 @@
+<n>John <span className=\
+highlight\>Doe</span></n>
