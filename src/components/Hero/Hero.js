@@ -345,78 +345,78 @@ const GetInTouch = styled.a`
 `;
 
 const Hero = () => {
-  const heroRef = useRef(null);
-  const codeBracketsRef = useRef(null);
-  const [isClicked, setIsClicked] = useState(false);
+    const heroRef = useRef(null);
+    const codeBracketsRef = useRef(null);
+    const [isClicked, setIsClicked] = useState(false);
 
-  const scrollToNextSection = () => {
-    const nextSection = document.getElementById("about");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleCodeBracketsClick = () => {
-    setIsClicked(true);
-
-    // Add a quick animation effect
-    if (codeBracketsRef.current) {
-      codeBracketsRef.current.style.transform = 'translateY(-50%) scale(1.2)';
-      codeBracketsRef.current.style.color = '#000000';
-
-      setTimeout(() => {
-        if (codeBracketsRef.current) {
-          codeBracketsRef.current.style.transform = 'translateY(-50%) scale(1)';
-          setIsClicked(false);
+    const scrollToNextSection = () => {
+        const nextSection = document.getElementById("about");
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth" });
         }
-      }, 300);
-    }
-  };
+    };
 
-  // Handle direct navigation to contact section
-  const handleContactClick = (e) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      window.scrollTo({
-        top: contactSection.offsetTop - 70,
-        behavior: 'smooth'
-      });
-    }
-  };
+    const handleCodeBracketsClick = () => {
+        setIsClicked(true);
 
-  return (
-    <>
-      <HeroSection id="hero" ref={heroRef}>
-        <HeroContainer>
-          <Greeting>Hello, I'm</Greeting>
-          <Name>
-            <span className="highlight">Python Developer</span>
-          </Name>
-          <Title>& Data Analyst</Title>
-          <Description>
-            Turning complex data into actionable insights and developing intelligent applications that make an impact. Passionate about creating seamless automation systems that transform how businesses operate.
-          </Description>
+        // Add a quick animation effect
+        if (codeBracketsRef.current) {
+            codeBracketsRef.current.style.transform = 'translateY(-50%) scale(1.2)';
+            codeBracketsRef.current.style.color = '#000000';
 
-          <ButtonContainer>
-            <ResumeButton href="#projects">View My Work</ResumeButton>
-            <ContactButton href="#contact" className="contact-cta-button" onClick={handleContactClick}>Get In Touch</ContactButton>
-          </ButtonContainer>
-        </HeroContainer>
-        <CodeBrackets
-          ref={codeBracketsRef}
-          onClick={handleCodeBracketsClick}
-          style={{ animationPlayState: isClicked ? 'paused' : 'running' }}
-        >
-          &lt;/&gt;
-        </CodeBrackets>
-        <ScrollPrompt onClick={scrollToNextSection}>
-          <span>Scroll</span>
-        </ScrollPrompt>
-      </HeroSection>
-      <SectionDivider section="hero" />
-    </>
-  );
+            setTimeout(() => {
+                if (codeBracketsRef.current) {
+                    codeBracketsRef.current.style.transform = 'translateY(-50%) scale(1)';
+                    setIsClicked(false);
+                }
+            }, 300);
+        }
+    };
+
+    // Handle direct navigation to contact section
+    const handleContactClick = (e) => {
+        e.preventDefault();
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            window.scrollTo({
+                top: contactSection.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    return (
+        <>
+            <HeroSection id="hero" ref={heroRef}>
+                <HeroContainer>
+                    <Greeting>Hello, I'm</Greeting>
+                    <Name>
+                        <span className="highlight">Python Developer</span>
+                    </Name>
+                    <Title>& Data Analyst</Title>
+                    <Description>
+                        Turning complex data into actionable insights and developing intelligent applications that make an impact. Passionate about creating seamless automation systems that transform how businesses operate.
+                    </Description>
+
+                    <ButtonContainer>
+                        <ResumeButton href="#projects">View My Work</ResumeButton>
+                        <ContactButton href="#contact" className="contact-cta-button" onClick={handleContactClick}>Get In Touch</ContactButton>
+                    </ButtonContainer>
+                </HeroContainer>
+                <CodeBrackets
+                    ref={codeBracketsRef}
+                    onClick={handleCodeBracketsClick}
+                    style={{ animationPlayState: isClicked ? 'paused' : 'running' }}
+                >
+                    &lt;/&gt;
+                </CodeBrackets>
+                <ScrollPrompt onClick={scrollToNextSection}>
+                    <span>Scroll</span>
+                </ScrollPrompt>
+            </HeroSection>
+            <SectionDivider section="hero" />
+        </>
+    );
 };
 
-export default Hero; 
+export default Hero;
