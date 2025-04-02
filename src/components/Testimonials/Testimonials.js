@@ -59,6 +59,20 @@ const TestimonialsHeading = styled.h2`
   }
 `;
 
+const TestimonialsSubheading = styled.p`
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+`;
+
 const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
@@ -158,6 +172,8 @@ const ZoomIcon = styled.div`
     height: 35px;
     bottom: 10px;
     right: 10px;
+    /* Make zoom icon always visible on mobile */
+    opacity: 0.9;
   }
 `;
 
@@ -179,6 +195,8 @@ const ClickInstruction = styled.div`
   @media screen and (max-width: 768px) {
     font-size: 12px;
     bottom: -30px;
+    /* Make hint always visible on mobile */
+    opacity: 0.9;
   }
 `;
 
@@ -265,20 +283,6 @@ const Dot = styled.div`
   }
 `;
 
-const TestimonialsSubheading = styled.p`
-  font-size: 18px;
-  color: #666;
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
-  
-  @media screen and (max-width: 768px) {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-`;
-
 // Modal components
 const ModalOverlay = styled(motion.div)`
   position: fixed;
@@ -353,6 +357,40 @@ const CloseButton = styled.button`
     top: -15px;
     right: -15px;
     font-size: 20px;
+  }
+`;
+
+// Add a permanent mobile hint
+const MobileHint = styled.div`
+  display: none;
+  text-align: center;
+  color: ${props => props.theme.colors.testimonials.accent};
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: ${props => props.theme.colors.testimonials.highlight};
+  border: 1px solid ${props => props.theme.colors.testimonials.accent + '40'};
+  
+  @media screen and (max-width: 768px) {
+    display: block;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
   }
 `;
 
@@ -434,6 +472,12 @@ const Testimonials = () => {
         <TestimonialsSubheading>
           Here's what people are saying about my work and collaboration
         </TestimonialsSubheading>
+
+        {/* Add mobile hint */}
+        <MobileHint>
+          <FiZoomIn style={{ marginRight: '5px', verticalAlign: 'middle' }} />
+          Tap on testimonials to view them in full screen
+        </MobileHint>
 
         <CarouselContainer
           onTouchStart={handleTouchStart}
