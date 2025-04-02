@@ -7,17 +7,17 @@ import SectionDivider from '../SectionDivider';
 const testimonialData = [
   {
     id: 1,
-    image: '/images/testimonial/review_1.png',
+    image: process.env.PUBLIC_URL + '/images/testimonial/review_1.png',
     alt: 'Client testimonial 1'
   },
   {
     id: 2,
-    image: '/images/testimonial/review_2.png',
+    image: process.env.PUBLIC_URL + '/images/testimonial/review_2.png',
     alt: 'Client testimonial 2'
   },
   {
     id: 3,
-    image: '/images/testimonial/review_3.png',
+    image: process.env.PUBLIC_URL + '/images/testimonial/review_3.png',
     alt: 'Client testimonial 3'
   }
 ];
