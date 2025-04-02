@@ -198,10 +198,8 @@ const About = () => {
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
       if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
+        entry.target.querySelectorAll('.animate-on-scroll').forEach((el) => {
           el.classList.add('show');
-          if (index > 0) el.classList.add('show-slow');
-          if (index > 2) el.classList.add('show-slower');
         });
 
         if (headingRef.current) {
@@ -209,7 +207,7 @@ const About = () => {
         }
       }
     }, {
-      threshold: 0.2
+      threshold: 0.1
     });
 
     if (aboutRef.current) {
@@ -229,7 +227,7 @@ const About = () => {
         <DecorativeSphere
           initial={{ x: '-50vw', y: '20vh' }}
           animate={{ x: '-40vw', y: '20vh' }}
-          transition={{ repeat: Infinity, duration: 20, repeatType: 'reverse' }}
+          transition={{ repeat: Infinity, duration: 15, repeatType: 'reverse' }}
         />
 
         <AboutContentWrapper>

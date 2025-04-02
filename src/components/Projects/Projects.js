@@ -592,7 +592,7 @@ const Projects = () => {
         projects.forEach((project, index) => {
           setTimeout(() => {
             project.classList.add('show');
-          }, index * 200);
+          }, index * 100);
         });
       }
     }, {

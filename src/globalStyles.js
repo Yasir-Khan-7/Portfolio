@@ -315,21 +315,21 @@ const GlobalStyle = createGlobalStyle`
   /* Animation classes for intersection observer */
   .hidden {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   
   .show {
     opacity: 1;
     transform: translateY(0);
-    transition: all 1s ease;
+    transition: all 0.5s ease;
   }
   
   .show-slow {
-    transition-delay: 0.3s;
+    transition-delay: 0.15s;
   }
   
   .show-slower {
-    transition-delay: 0.6s;
+    transition-delay: 0.3s;
   }
 `;
 

@@ -346,7 +346,7 @@ const Skills = () => {
         });
       }
     }, {
-      threshold: 0.2
+      threshold: 0.1
     });
 
     if (skillsRef.current) {
@@ -409,7 +409,7 @@ const Skills = () => {
                     active={skill.active}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05 }}
                   >
                     <SkillName active={skill.active}>{skill.name}</SkillName>
                     <SkillLevel level={skill.level} />
@@ -440,7 +440,7 @@ const Skills = () => {
                     active={skill.active}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
+                    transition={{ delay: index * 0.05 + 0.15 }}
                   >
                     <SkillName active={skill.active}>{skill.name}</SkillName>
                     <SkillLevel level={skill.level} />
