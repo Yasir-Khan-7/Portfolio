@@ -1,0 +1,1 @@
+const fs = require('fs'); const filePath = 'src/components/Hero/Hero.js'; const content = fs.readFileSync(filePath, 'utf8'); const newContent = content.replace(/<n>/g, '<Name>').replace(/<\/n>/g, '</Name>'); fs.writeFileSync(filePath, newContent); console.log('Hero.js has been updated successfully.');
