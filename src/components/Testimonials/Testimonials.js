@@ -29,11 +29,7 @@ const TestimonialsContainer = styled.section`
   background: ${props => props.theme.colors.background};
   
   @media screen and (max-width: 768px) {
-    padding: 80px 5% 100px;
-  }
-  
-  @media screen and (max-width: 480px) {
-    padding: 60px 4% 80px;
+    padding: 80px 5%;
   }
 `;
 
@@ -84,11 +80,6 @@ const CarouselContainer = styled.div`
   overflow: hidden;
   
   @media screen and (max-width: 768px) {
-    padding: 15px 0;
-    overflow: visible;
-  }
-  
-  @media screen and (max-width: 480px) {
     padding: 10px 0;
   }
 `;
@@ -113,12 +104,7 @@ const TestimonialItem = styled.div`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 5px;
-    overflow: visible;
-  }
-  
-  @media screen and (max-width: 480px) {
-    padding: 2px;
+    padding: 10px;
   }
 `;
 
@@ -143,17 +129,9 @@ const TestimonialImage = styled.img`
   }
   
   @media screen and (max-width: 768px) {
-    padding: 6px;
+    padding: 12px;
     width: 100%;
-    min-width: 300px;
-    border-width: 2px;
-    transform: scale(1.05);
-  }
-  
-  @media screen and (max-width: 480px) {
-    padding: 4px;
-    min-width: 100%;
-    transform: scale(1.1);
+    border-width: 3px;
   }
 `;
 
@@ -184,8 +162,6 @@ const ZoomIcon = styled.div`
     height: 35px;
     bottom: 10px;
     right: 10px;
-    /* Make zoom icon always visible on mobile */
-    opacity: 0.9;
   }
 `;
 
@@ -207,8 +183,6 @@ const ClickInstruction = styled.div`
   @media screen and (max-width: 768px) {
     font-size: 12px;
     bottom: -30px;
-    /* Make hint always visible on mobile */
-    opacity: 0.9;
   }
 `;
 
@@ -330,17 +304,6 @@ const ModalImage = styled.img`
   max-width: 100%;
   max-height: 85vh;
   object-fit: contain;
-  
-  @media screen and (max-width: 768px) {
-    max-height: 80vh;
-    width: auto;
-    transform: scale(1.05);
-  }
-  
-  @media screen and (max-width: 480px) {
-    max-height: 75vh;
-    transform: scale(1.1);
-  }
 `;
 
 const CloseButton = styled.button`
@@ -375,48 +338,6 @@ const CloseButton = styled.button`
     top: -15px;
     right: -15px;
     font-size: 20px;
-  }
-`;
-
-// Add a permanent mobile hint
-const MobileHint = styled.div`
-  display: none;
-  text-align: center;
-  color: ${props => props.theme.colors.testimonials.accent};
-  font-size: 14px;
-  font-weight: 500;
-  margin: 0 auto 20px;
-  padding: 10px 16px;
-  border-radius: 20px;
-  background-color: ${props => props.theme.colors.testimonials.highlight};
-  border: 1px solid ${props => props.theme.colors.testimonials.accent + '40'};
-  max-width: 90%;
-  
-  @media screen and (max-width: 768px) {
-    display: block;
-    animation: pulse 2s infinite;
-    font-size: 14px;
-  }
-  
-  @media screen and (max-width: 480px) {
-    font-size: 13px;
-    padding: 8px 12px;
-    margin-bottom: 15px;
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-      opacity: 0.9;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0.9;
-    }
   }
 `;
 
@@ -499,12 +420,6 @@ const Testimonials = () => {
           Here's what people are saying about my work and collaboration
         </TestimonialsSubheading>
 
-        {/* Add mobile hint */}
-        <MobileHint>
-          <FiZoomIn style={{ marginRight: '5px', verticalAlign: 'middle' }} />
-          Tap to view testimonials in full screen for better readability
-        </MobileHint>
-
         <CarouselContainer
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -530,7 +445,7 @@ const Testimonials = () => {
                   <ZoomIcon>
                     <FiZoomIn size={20} />
                   </ZoomIcon>
-                  <ClickInstruction>Click to view full size</ClickInstruction>
+                  <ClickInstruction>Click to enlarge</ClickInstruction>
                 </TestimonialImageWrapper>
               </TestimonialItem>
             ))}
