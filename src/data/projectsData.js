@@ -18,7 +18,7 @@ export const projectsData = [
         image: `${publicUrl}/images/projects/iesa/iesa_1.png`,
         technologies: ["Python", "Machine Learning", "Streamlit", "MySQL", "LLM", "Smol-agents"],
         githubLink: "https://github.com/Yasir-Khan-7/Intelligent-Energy-Scenerio-Analaysis",
-        liveLink: "#",
+        liveLink: "https://iesa-entry.streamlit.app",
         featured: true
     },
     {
