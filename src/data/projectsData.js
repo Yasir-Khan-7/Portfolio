@@ -17,8 +17,8 @@ export const projectsData = [
         ],
         image: `${publicUrl}/images/projects/iesa/iesa_1.png`,
         technologies: ["Python", "Machine Learning", "Streamlit", "MySQL", "LLM", "Smol-agents"],
-        githubLink: "https://github.com/Yasir-Khan-7/IESA",
-        liveLink: "https://iesa.streamlit.app/",
+        githubLink: "https://github.com/Yasir-Khan-7/Intelligent-Energy-Scenerio-Analaysis",
+        liveLink: "#",
         featured: true
     },
     {
@@ -34,7 +34,7 @@ export const projectsData = [
         ],
         image: `${publicUrl}/images/projects/synthgen-ai/synthgen_1.png`,
         technologies: ["Python", "Streamlit", "Groq LLM", "Llama 3.3 70B", "Pydantic AI", "Data Science"],
-        githubLink: "https://github.com/example/synthgen-ai",
+        githubLink: "https://github.com/Yasir-Khan-7/SynthGen",
         liveLink: "https://synthgen-ai.streamlit.app",
         featured: true
     },
@@ -51,8 +51,8 @@ export const projectsData = [
         ],
         image: `${publicUrl}/images/projects/ai-fintrack/fintrack_3.png`,
         technologies: ["React", "TypeScript", "Material-UI", "Supabase", "Chart.js", "Groq SDK", "AI"],
-        githubLink: "https://github.com/example/ai-fintrack",
-        liveLink: "https://ai-fintrack-demo.netlify.app",
+        githubLink: "https://github.com/Yasir-Khan-7/AI-FinTrack",
+        liveLink: "https://yasir-khan-7.github.io/AI-FinTrack/",
         featured: true
     },
     {
@@ -68,7 +68,7 @@ export const projectsData = [
         image: `${publicUrl}/images/projects/ai_schemagen/pdf_xml_1.png`,
         technologies: ["Python", "Streamlit", "LLM", "Smol-agents", "AI"],
         githubLink: "https://github.com/Yasir-Khan-7/AI-SchemaGen",
-        liveLink: "https://ai-schemagen.streamlit.app/",
+        liveLink: "https://ai-schemagen.streamlit.app",
         featured: true
     },
     {
