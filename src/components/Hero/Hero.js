@@ -393,9 +393,9 @@ const Hero = () => {
           <Name>
             <span className="highlight">Python Developer</span>
           </Name>
-          <Title>& Data Analyst</Title>
+          <Title>& Full Stack Prompt Engineer</Title>
           <Description>
-            Turning complex data into actionable insights and developing intelligent applications that make an impact. Passionate about creating seamless automation systems that transform how businesses operate.
+            I turn complex problems into clear, actionable insights and build intelligent apps that make a real impact. I focus on seamless automation, a smooth developer experience, and practical delivery—reliable systems, flowing pipelines, and code that works.
           </Description>
 
           <ButtonContainer>

@@ -318,7 +318,7 @@ const About = () => {
         <AboutContentWrapper>
           <AboutTextContent>
             <AboutText className="animate-on-scroll hidden">
-              Hi there! I'm a passionate final year software engineering student with a focus on creating exceptional digital experiences and innovative solutions. I enjoy building elegant, data-driven applications and intelligent systems using modern technologies.
+              Hi there! I'm a passionate Software Engineer with a focus on creating exceptional digital experiences and innovative solutions. I enjoy building elegant, data-driven applications and intelligent systems using modern technologies.
             </AboutText>
 
             <AboutText className="animate-on-scroll hidden">
@@ -362,6 +362,11 @@ const About = () => {
               <AIToolLogo src={`${process.env.PUBLIC_URL}/images/ai_tools/chat_gpt_logo.png`} alt="ChatGPT" />
               <AIToolName>ChatGPT</AIToolName>
               <AIToolDescription>Proficient in using ChatGPT for problem-solving, code debugging, and generating innovative solutions.</AIToolDescription>
+            </AIToolCard>
+            <AIToolCard className="animate-on-scroll hidden">
+              <AIToolLogo src={`${process.env.PUBLIC_URL}/images/ai_tools/claude_code.png`} alt="Claude Code" />
+              <AIToolName>Claude Code (CLI)</AIToolName>
+              <AIToolDescription>Use Claude Code in terminal workflows for rapid prototyping, refactoring, and AI-assisted coding directly from the CLI.</AIToolDescription>
             </AIToolCard>
             <AIToolCard className="animate-on-scroll hidden">
               <AIToolLogo src={`${process.env.PUBLIC_URL}/images/ai_tools/cursor_id_logo.png`} alt="Cursor" />

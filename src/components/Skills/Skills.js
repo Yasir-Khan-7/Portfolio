@@ -464,6 +464,30 @@ const Skills = () => {
 
             <ExperienceCard>
               <ExperienceHeader>
+                <CompanyLogo src={`${process.env.PUBLIC_URL}/images/experience/sideline_technologies.png`} alt="Sideline Technologies Logo" />
+                <ExperienceInfo>
+                  <CompanyName>Sideline Technologies</CompanyName>
+                  <JobTitle>Full Stack Prompt Engineer</JobTitle>
+                  <Duration>April 28, 2025 - Present</Duration>
+                </ExperienceInfo>
+              </ExperienceHeader>
+
+              <ExperienceDesc>
+                <ResponsibilitiesTitle>Key Contributions (Mobile & Web):</ResponsibilitiesTitle>
+                <ResponsibilitiesList>
+                  <ResponsibilityItem>Led AI & prompt engineering using Cursor, Claude Code, and Trae AI to accelerate delivery and improve reliability.</ResponsibilityItem>
+                  <ResponsibilityItem>Enabled the team in AI prompt engineering, significantly boosting productivity through AI-driven applications and automated workflows.</ResponsibilityItem>
+                  <ResponsibilityItem>Developed cross-platform mobile (iOS & Android) and web applications using modern AI-assisted development tools.</ResponsibilityItem>
+                  <ResponsibilityItem>Utilized Cursor, Claude Code, and Trae AI to accelerate development, optimize engineering workflows, and enhance overall software quality.</ResponsibilityItem>
+                  <ResponsibilityItem>Built trainer-focused platform (Next.js + .NET) with Mollie payments, Clerk for user data, Info Company verification, and Google OAuth.</ResponsibilityItem>
+                  <ResponsibilityItem>Delivered Slack-like club communications using GetStream SDK with channels, DMs, rich media, role-based access, and notifications.</ResponsibilityItem>
+                 
+                </ResponsibilitiesList>
+              </ExperienceDesc>
+            </ExperienceCard>
+
+            <ExperienceCard>
+              <ExperienceHeader>
                 <CompanyLogo src={`${process.env.PUBLIC_URL}/images/experience/dataventiv_logo.png`} alt="Dataventiv Logo" />
                 <ExperienceInfo>
                   <CompanyName>Dataventiv</CompanyName>
