@@ -274,7 +274,7 @@ const Navbar = () => {
           >
             <FiMail />
           </SocialIcon>
-          <SocialIcon href="https://www.linkedin.com/in/yasirkhan71/" target="_blank" rel="noopener noreferrer">
+          <SocialIcon href="https://www.linkedin.com/in/yasir-khan7134/" target="_blank" rel="noopener noreferrer">
             <FiLinkedin />
           </SocialIcon>
           <SocialIcon href="https://github.com/Yasir-Khan-7" target="_blank" rel="noopener noreferrer">
