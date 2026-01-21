@@ -239,20 +239,6 @@ const ProjectLink = styled.a`
   }
 `;
 
-const FeaturedTag = styled.span`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: ${props => props.theme.colors.projects.accent};
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  z-index: 2;
-`;
-
 const NewBadge = styled.span`
   position: absolute;
   top: 15px;
@@ -574,31 +560,6 @@ const LoadMoreButton = styled.button`
   }
 `;
 
-const FilterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-`;
-
-const FilterButton = styled.button`
-  padding: 8px 20px;
-  background: ${props => props.active ? props.theme.colors.projects.accent : '#f5f5f5'};
-  color: ${props => props.active ? 'white' : '#333'};
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: ${props => props.active ? props.theme.colors.projects.accentHover : '#e5e5e5'};
-    transform: translateY(-1px);
-  }
-`;
-
 const Projects = () => {
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState(null);
@@ -630,13 +591,14 @@ const Projects = () => {
       threshold: 0.1
     });
 
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
+    const currentProjectsRef = projectsRef.current;
+    if (currentProjectsRef) {
+      observer.observe(currentProjectsRef);
     }
 
     return () => {
-      if (projectsRef.current) {
-        observer.unobserve(projectsRef.current);
+      if (currentProjectsRef) {
+        observer.unobserve(currentProjectsRef);
       }
     };
   }, []);
@@ -678,10 +640,11 @@ const Projects = () => {
 
   // Clean up timers on unmount
   useEffect(() => {
+    const timers = sliderTimers.current;
     return () => {
-      Object.keys(sliderTimers.current).forEach(key => {
-        if (sliderTimers.current[key]) {
-          clearInterval(sliderTimers.current[key]);
+      Object.keys(timers).forEach(key => {
+        if (timers[key]) {
+          clearInterval(timers[key]);
         }
       });
     };
