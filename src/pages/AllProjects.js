@@ -358,37 +358,6 @@ const ProjectLink = styled.a`
   }
 `;
 
-const NewBadge = styled.span`
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background-color: #ff4444;
-  color: white;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
-  animation: pulse 2s ease-in-out infinite;
-  cursor: pointer;
-  
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-  }
-  
-  &:hover {
-    background-color: #ff2222;
-    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.5);
-  }
-`;
-
 const AllProjects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeSubFilter, setActiveSubFilter] = useState(null);
@@ -508,9 +477,6 @@ const AllProjects = () => {
                   e.target.style.display = 'none';
                 }}
               />
-              {project.year === 2026 && (
-                <NewBadge>NEW</NewBadge>
-              )}
               <ProjectCardOverlay>
                 <ViewProjectButton>
                   <FiEye /> View Project
