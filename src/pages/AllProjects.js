@@ -391,6 +391,7 @@ const NewBadge = styled.span`
 
 const AllProjects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [activeSubFilter, setActiveSubFilter] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -406,13 +407,34 @@ const AllProjects = () => {
     'Industrial Automation': ['Python', 'Streamlit', 'MySQL', 'Smol-agents']
   };
 
-  const filteredProjects = activeFilter === 'all'
-    ? projectsData
-    : projectsData.filter(project =>
+  const aiSubCategories = ['AI Designs', 'Tools', 'AI Applications'];
+
+  const filteredProjects = (() => {
+    if (activeFilter === 'all') {
+      return projectsData;
+    }
+    
+    // If AI filter is active and a subcategory is selected
+    if (activeFilter === 'AI' && activeSubFilter) {
+      return projectsData.filter(project => project.category === activeSubFilter);
+    }
+    
+    // If AI filter is active but no subcategory selected, show all AI projects
+    if (activeFilter === 'AI') {
+      return projectsData.filter(project =>
+        project.technologies && project.technologies.some(tech =>
+          projectCategories['AI'].includes(tech)
+        )
+      );
+    }
+    
+    // For other filters
+    return projectsData.filter(project =>
       project.technologies && project.technologies.some(tech =>
         projectCategories[activeFilter] && projectCategories[activeFilter].includes(tech)
       )
     );
+  })();
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -435,7 +457,10 @@ const AllProjects = () => {
         <FilterContainer>
           <FilterButton
             className={activeFilter === 'all' ? 'active' : ''}
-            onClick={() => setActiveFilter('all')}
+            onClick={() => {
+              setActiveFilter('all');
+              setActiveSubFilter(null);
+            }}
           >
             All
           </FilterButton>
@@ -443,12 +468,30 @@ const AllProjects = () => {
             <FilterButton
               key={filter}
               className={activeFilter === filter ? 'active' : ''}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => {
+                setActiveFilter(filter);
+                setActiveSubFilter(null);
+              }}
             >
               {filter}
             </FilterButton>
           ))}
         </FilterContainer>
+        
+        {activeFilter === 'AI' && (
+          <FilterContainer style={{ marginTop: '10px' }}>
+            {aiSubCategories.map(subCategory => (
+              <FilterButton
+                key={subCategory}
+                className={activeSubFilter === subCategory ? 'active' : ''}
+                onClick={() => setActiveSubFilter(activeSubFilter === subCategory ? null : subCategory)}
+                style={{ fontSize: '14px', padding: '10px 20px' }}
+              >
+                {subCategory}
+              </FilterButton>
+            ))}
+          </FilterContainer>
+        )}
       </PageHeader>
 
       <ProjectsGrid>

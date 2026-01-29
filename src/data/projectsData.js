@@ -19,7 +19,8 @@ export const projectsData = [
         technologies: ["Python", "Machine Learning", "Streamlit", "MySQL", "LLM", "Smol-agents"],
         githubLink: "https://github.com/Yasir-Khan-7/Intelligent-Energy-Scenerio-Analaysis",
         liveLink: "https://iesa-entry.streamlit.app",
-        featured: true
+        featured: true,
+        category: "AI Applications"
     },
     {
         id: 2,
@@ -38,7 +39,8 @@ export const projectsData = [
         githubLink: "https://github.com/Yasir-Khan-7/NextShop-AI",
         liveLink: "https://next-shop-ai.vercel.app/",
         featured: true,
-        year: 2026
+        year: 2026,
+        category: "AI Designs"
     },
     {
         id: 3,
@@ -58,7 +60,8 @@ export const projectsData = [
         githubLink: "https://github.com/Yasir-Khan-7/TravelSense-AI",
         liveLink: "https://travel-sense-ai.vercel.app/",
         featured: true,
-        year: 2026
+        year: 2026,
+        category: "AI Designs"
     },
     {
         id: 4,
@@ -79,7 +82,8 @@ export const projectsData = [
         githubLink: "https://github.com/Yasir-Khan-7/Positivus-AI-Agency",
         liveLink: "https://positivus-ai-agency.vercel.app/",
         featured: true,
-        year: 2026
+        year: 2026,
+        category: "AI Designs"
     },
     {
         id: 5,
@@ -102,7 +106,8 @@ export const projectsData = [
         githubLink: "https://github.com/Yasir-Khan-7/EatSmart-AI",
         liveLink: "https://eatsmart-ai.vercel.app/",
         featured: true,
-        year: 2026
+        year: 2026,
+        category: "AI Designs"
     },
     {
         id: 6,
@@ -121,7 +126,8 @@ export const projectsData = [
         githubLink: "https://github.com/Yasir-Khan-7/mcp-learning-assistant",
         liveLink: "https://mcpservers.org/servers/yasir-khan-7/mcp-learning-assistant",
         featured: true,
-        year: 2026
+        year: 2026,
+        category: "Tools"
     },
     {
         id: 7,
@@ -138,7 +144,8 @@ export const projectsData = [
         technologies: ["Python", "Streamlit", "Groq LLM", "Llama 3.3 70B", "Pydantic AI", "Data Science"],
         githubLink: "https://github.com/Yasir-Khan-7/SynthGen",
         liveLink: "https://synthgen-ai.streamlit.app",
-        featured: true
+        featured: true,
+        category: "Tools"
     },
     {
         id: 8,
@@ -155,7 +162,8 @@ export const projectsData = [
         technologies: ["React", "TypeScript", "Material-UI", "Supabase", "Chart.js", "Groq SDK", "AI"],
         githubLink: "https://github.com/Yasir-Khan-7/AI-FinTrack",
         liveLink: "https://yasir-khan-7.github.io/AI-FinTrack/",
-        featured: true
+        featured: true,
+        category: "AI Applications"
     },
     {
         id: 9,
@@ -171,7 +179,8 @@ export const projectsData = [
         technologies: ["Python", "Streamlit", "LLM", "Smol-agents", "AI"],
         githubLink: "https://github.com/Yasir-Khan-7/AI-SchemaGen",
         liveLink: "https://ai-schemagen.streamlit.app",
-        featured: true
+        featured: true,
+        category: "Tools"
     },
     {
         id: 10,
@@ -185,6 +194,7 @@ export const projectsData = [
         technologies: ["Power BI", "ETL", "Data Visualization", "Sales Analytics", "Business Intelligence"],
         githubLink: null,
         liveLink: "https://app.powerbi.com/view?r=eyJrIjoiNzA0ZDA0OGItMzVkMy00ODc1LThhZmYtOGRkNDE2ZjFhNzJhIiwidCI6ImM4OTM2N2ViLWFlYTEtNDM4YS1hNWYzLTY0ODdhNjAzYjMzYSIsImMiOjl9",
-        featured: true
+        featured: true,
+        category: "Data"
     }
 ]; 
