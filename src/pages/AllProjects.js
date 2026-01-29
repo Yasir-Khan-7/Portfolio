@@ -351,10 +351,33 @@ const ViewProjectButton = styled.div`
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   border: 2px solid rgba(255,255,255,0.8);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 68, 68, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
   
   svg {
     margin-right: 8px;
     font-size: 20px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+  
+  span {
+    position: relative;
+    z-index: 1;
   }
   
   ${ProjectCardOverlay}:hover & {
@@ -362,10 +385,18 @@ const ViewProjectButton = styled.div`
   }
   
   &:hover {
-    background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
-    color: white;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(255, 68, 68, 0.4);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 68, 68, 0.3);
+    
+    &::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    svg {
+      transform: rotate(5deg) scale(1.1);
+    }
   }
 `;
 
@@ -382,10 +413,27 @@ const ProjectTitle = styled.h3`
   color: #1a1a1a;
   margin-bottom: 12px;
   line-height: 1.4;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4444, #ff6b6b);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   
   ${ProjectItem}:hover & {
-    color: #ff4444;
+    letter-spacing: 0.5px;
+    
+    &::after {
+      width: 100%;
+    }
   }
 `;
 
@@ -421,17 +469,30 @@ const TechItem = styled.li`
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 20px;
   border: 1px solid rgba(0,0,0,0.06);
-  
-  &:hover {
-    background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
-    border-color: transparent;
-  }
+  position: relative;
+  overflow: hidden;
   
   &::before {
-    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    color: #333;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0,0,0,0.1);
+    
+    &::before {
+      left: 100%;
+    }
   }
 `;
 
@@ -455,13 +516,26 @@ const ProjectLink = styled.a`
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 12px;
   border: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  
+  svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   
   &:hover {
-    background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
     color: white;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 16px rgba(255, 68, 68, 0.3);
+    transform: translateY(-4px) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     border-color: transparent;
+    
+    svg {
+      transform: scale(1.2);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-2px) rotate(5deg) scale(0.95);
   }
 `;
 
@@ -595,7 +669,7 @@ const AllProjects = () => {
               />
               <ProjectCardOverlay>
                 <ViewProjectButton>
-                  <FiEye /> View Project
+                  <FiEye /> <span>View Project</span>
                 </ViewProjectButton>
               </ProjectCardOverlay>
             </ProjectImageContainer>
