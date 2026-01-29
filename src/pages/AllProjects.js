@@ -8,19 +8,29 @@ import ProjectModal from '../components/Projects/ProjectModal';
 const AllProjectsContainer = styled.div`
   padding: 80px 10% 100px;
   min-height: 100vh;
-  background: ${props => props.theme.colors.background};
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f5 100%);
   position: relative;
   overflow: hidden;
   
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,68,68,0.03) 0%, transparent 70%);
     pointer-events: none;
+    animation: float 20s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(30px, 30px) rotate(5deg);
+    }
   }
   
   @media screen and (max-width: 768px) {
@@ -72,90 +82,160 @@ const PageHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.9) 100%);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.8);
+  
+  @media screen and (max-width: 768px) {
+    padding: 30px 15px;
+    margin-bottom: 30px;
+  }
 `;
 
 const PageTitle = styled.h1`
-  font-size: 40px;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 30px;
+  font-size: 56px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
   text-align: center;
   position: relative;
-  display: inline-block;
+  letter-spacing: -1px;
   
   &::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(to right, ${props => props.theme.colors.projects.accent}, ${props => props.theme.colors.projects.accentHover});
-    border-radius: 2px;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4444 0%, #ff6b6b 50%, #ff4444 100%);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
   }
   
   @media screen and (max-width: 768px) {
-    font-size: 32px;
-    margin-bottom: 25px;
+    font-size: 38px;
+    margin-bottom: 12px;
   }
+`;
+
+const PageSubtitle = styled.p`
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 600px;
+  
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+`;
+
+const FilterSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+`;
+
+const FilterLabel = styled.span`
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
 `;
 
 const FilterContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 0;
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+  padding: 12px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 16px;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.04);
+  
+  @media screen and (max-width: 768px) {
+    gap: 8px;
+    padding: 8px;
+  }
 `;
 
 const FilterButton = styled.button`
-  padding: 12px 30px;
-  background: transparent;
-  color: #333;
-  border: none;
-  border-radius: 0;
-  font-size: 16px;
-  font-weight: 500;
+  padding: 14px 32px;
+  background: ${props => props.className?.includes('active') 
+    ? 'linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%)' 
+    : 'rgba(255,255,255,0.9)'};
+  color: ${props => props.className?.includes('active') ? '#ffffff' : '#333'};
+  border: 2px solid ${props => props.className?.includes('active') ? 'transparent' : 'rgba(0,0,0,0.08)'};
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
+  box-shadow: ${props => props.className?.includes('active') 
+    ? '0 4px 12px rgba(255, 68, 68, 0.3)' 
+    : '0 2px 8px rgba(0,0,0,0.04)'};
   
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: #ff4444;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
   
-  &:hover, &.active {
-    color: #333;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: ${props => props.className?.includes('active') 
+      ? '0 6px 20px rgba(255, 68, 68, 0.4)' 
+      : '0 4px 16px rgba(0,0,0,0.1)'};
+    border-color: ${props => props.className?.includes('active') ? 'transparent' : 'rgba(255, 68, 68, 0.3)'};
     
-    &::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    &::before {
+      opacity: 1;
     }
   }
   
-  &.active {
-    font-weight: 600;
+  &:active {
+    transform: translateY(0);
+  }
+  
+  @media screen and (max-width: 768px) {
+    padding: 12px 24px;
+    font-size: 14px;
   }
 `;
 
 const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 10px;
+  gap: 35px;
+  margin-top: 20px;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -164,26 +244,29 @@ const ProjectsGrid = styled.div`
   
   @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
   
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 `;
 
 const ProjectItem = styled.div`
-  background-color: #ffffff;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
-  transition: all 0.4s ease;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   cursor: pointer;
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 68, 68, 0.2);
   }
   
   &::before {
@@ -193,19 +276,36 @@ const ProjectItem = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 12px;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
     pointer-events: none;
-    z-index: 3;
+    z-index: 1;
+  }
+  
+  &:hover::before {
+    opacity: 1;
   }
 `;
 
 const ProjectImageContainer = styled.div`
-  height: 200px;
+  height: 220px;
   overflow: hidden;
-  background-color: #f8f8f8;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   cursor: pointer;
   position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.02) 100%);
+    pointer-events: none;
+  }
 `;
 
 const ProjectImage = styled.img`
@@ -242,18 +342,19 @@ const ViewProjectButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   color: #333;
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
   transform: translateY(20px);
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border: 2px solid rgba(255,255,255,0.8);
   
   svg {
     margin-right: 8px;
-    font-size: 18px;
+    font-size: 20px;
   }
   
   ${ProjectCardOverlay}:hover & {
@@ -261,29 +362,38 @@ const ViewProjectButton = styled.div`
   }
   
   &:hover {
-    background: #ffffff;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(255, 68, 68, 0.4);
   }
 `;
 
 const ProjectContent = styled.div`
-  padding: 20px;
-  background: linear-gradient(to bottom right, #ffffff, #fcfcfc);
+  padding: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  position: relative;
+  z-index: 2;
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 700;
-  color: #222222;
+  color: #1a1a1a;
   margin-bottom: 12px;
-  line-height: 1.3;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  
+  ${ProjectItem}:hover & {
+    color: #ff4444;
+  }
 `;
 
 const ProjectDescription = styled.p`
   font-size: 14px;
-  color: #555555;
-  line-height: 1.5;
-  margin-bottom: 15px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 16px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -296,65 +406,62 @@ const TechList = styled.ul`
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 0 0 15px 0;
+  margin: 0 0 18px 0;
   gap: 8px;
 `;
 
 const TechItem = styled.li`
-  font-size: 14px;
-  color: #666666;
-  padding: 0;
+  font-size: 12px;
+  color: #666;
+  padding: 6px 14px;
   display: inline-flex;
   align-items: center;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  background: none;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.06);
   
   &:hover {
-    color: #4a86e8;
+    background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+    border-color: transparent;
   }
   
   &::before {
-    content: '▸';
-    color: #4a86e8;
-    margin-right: 8px;
-    font-size: 16px;
-    line-height: 1;
-    font-weight: 600;
+    display: none;
   }
 `;
 
 const ProjectLinks = styled.div`
   display: flex;
-  gap: 15px;
-  margin-top: 15px;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0,0,0,0.06);
 `;
 
 const ProjectLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
   font-size: 20px;
-  color: #555555;
-  transition: all 0.3s ease;
-  padding: 8px;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: #ff4444;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-  }
+  color: #555;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
   
   &:hover {
-    color: #333;
-    
-    &::after {
-      width: 100%;
-    }
+    background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 68, 68, 0.3);
+    border-color: transparent;
   }
 `;
 
@@ -423,44 +530,53 @@ const AllProjects = () => {
 
       <PageHeader>
         <PageTitle>All Projects</PageTitle>
-        <FilterContainer>
-          <FilterButton
-            className={activeFilter === 'all' ? 'active' : ''}
-            onClick={() => {
-              setActiveFilter('all');
-              setActiveSubFilter(null);
-            }}
-          >
-            All
-          </FilterButton>
-          {['AI', 'Data', 'Industrial Automation'].map(filter => (
+        <PageSubtitle>
+          Explore my portfolio of AI-driven applications, data analytics, and innovative solutions
+        </PageSubtitle>
+        
+        <FilterSection>
+          <FilterLabel>Filter by Category</FilterLabel>
+          <FilterContainer>
             <FilterButton
-              key={filter}
-              className={activeFilter === filter ? 'active' : ''}
+              className={activeFilter === 'all' ? 'active' : ''}
               onClick={() => {
-                setActiveFilter(filter);
+                setActiveFilter('all');
                 setActiveSubFilter(null);
               }}
             >
-              {filter}
+              All
             </FilterButton>
-          ))}
-        </FilterContainer>
-        
-        {activeFilter === 'AI' && (
-          <FilterContainer style={{ marginTop: '10px' }}>
-            {aiSubCategories.map(subCategory => (
+            {['AI', 'Data', 'Industrial Automation'].map(filter => (
               <FilterButton
-                key={subCategory}
-                className={activeSubFilter === subCategory ? 'active' : ''}
-                onClick={() => setActiveSubFilter(activeSubFilter === subCategory ? null : subCategory)}
-                style={{ fontSize: '14px', padding: '10px 20px' }}
+                key={filter}
+                className={activeFilter === filter ? 'active' : ''}
+                onClick={() => {
+                  setActiveFilter(filter);
+                  setActiveSubFilter(null);
+                }}
               >
-                {subCategory}
+                {filter}
               </FilterButton>
             ))}
           </FilterContainer>
-        )}
+          
+          {activeFilter === 'AI' && (
+            <>
+              <FilterLabel style={{ marginTop: '10px' }}>AI Subcategories</FilterLabel>
+              <FilterContainer>
+                {aiSubCategories.map(subCategory => (
+                  <FilterButton
+                    key={subCategory}
+                    className={activeSubFilter === subCategory ? 'active' : ''}
+                    onClick={() => setActiveSubFilter(activeSubFilter === subCategory ? null : subCategory)}
+                  >
+                    {subCategory}
+                  </FilterButton>
+                ))}
+              </FilterContainer>
+            </>
+          )}
+        </FilterSection>
       </PageHeader>
 
       <ProjectsGrid>
