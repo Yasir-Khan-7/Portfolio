@@ -318,7 +318,7 @@ const About = () => {
         <AboutContentWrapper>
           <AboutTextContent>
             <AboutText className="animate-on-scroll hidden">
-              Hi there! I'm a passionate Software Engineer with a focus on creating exceptional digital experiences and innovative solutions. I enjoy building elegant, data-driven applications and intelligent systems using modern technologies.
+              A passionate Software Engineer with a focus on creating exceptional digital experiences and innovative solutions. I enjoy building elegant, data-driven applications and intelligent systems using modern technologies.
             </AboutText>
 
             <AboutText className="animate-on-scroll hidden">

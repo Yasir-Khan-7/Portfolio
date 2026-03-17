@@ -57,10 +57,10 @@ const Greeting = styled.h1`
 
 const Name = styled.h2`
   color: ${props => props.theme.colors.textPrimary};
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.3;
   animation: fadeInUp 1s ease-in-out;
   animation-delay: 0.2s;
   animation-fill-mode: both;
@@ -83,11 +83,11 @@ const Name = styled.h2`
   }
   
   @media ${props => props.theme.breakpoints.md} {
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   }
   
   @media ${props => props.theme.breakpoints.sm} {
-    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     white-space: normal;
   }
 `;
@@ -391,9 +391,10 @@ const Hero = () => {
         <HeroContainer>
           <Greeting>Hello, I'm</Greeting>
           <Name>
-            <span className="highlight">Python Developer</span>
+            <span className="highlight">AI Engineer | Prompt Engineer</span>
+            <br />
+            <span className="highlight">Vibe Coder</span>
           </Name>
-          <Title>& Full Stack Prompt Engineer</Title>
           <Description>
             I turn complex problems into clear, actionable insights and build intelligent apps that make a real impact. I focus on seamless automation, a smooth developer experience, and practical delivery—reliable systems, flowing pipelines, and code that works.
           </Description>

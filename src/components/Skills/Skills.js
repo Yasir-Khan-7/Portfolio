@@ -481,8 +481,10 @@ const Skills = () => {
                   <ResponsibilityItem>Utilized Cursor, Claude Code, and Trae AI to accelerate development, optimize engineering workflows, and enhance overall software quality.</ResponsibilityItem>
                   <ResponsibilityItem>Built trainer-focused platform (Next.js + .NET) with Mollie payments, Clerk for user data, Info Company verification, and Google OAuth.</ResponsibilityItem>
                   <ResponsibilityItem>Delivered Slack-like club communications using GetStream SDK with channels, DMs, rich media, role-based access, and notifications.</ResponsibilityItem>
-                 
                 </ResponsibilitiesList>
+                <CompanyLink href="https://sidelineagency.nl/" target="_blank" rel="noopener noreferrer">
+                  Visit Company Website
+                </CompanyLink>
               </ExperienceDesc>
             </ExperienceCard>
 
@@ -515,9 +517,6 @@ const Skills = () => {
                   <ResponsibilityItem>Worked with Linux-based systems on Raspberry Pi 4 for engineering applications</ResponsibilityItem>
                 </ResponsibilitiesList>
                 <p>Built comprehensive data collection and monitoring systems for industrial clients, progressing from simulation development to full data engineering pipeline implementation.</p>
-                <CompanyLink href="https://dataventiv.com" target="_blank" rel="noopener noreferrer">
-                  Visit Company Website
-                </CompanyLink>
               </ExperienceDesc>
             </ExperienceCard>
 
