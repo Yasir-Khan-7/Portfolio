@@ -211,6 +211,27 @@ const ProjectLinks = styled.div`
   margin-top: 20px;
 `;
 
+const ToolLogosContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+`;
+
+const ToolLogoImage = styled.img`
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.15);
+  }
+`;
+
 const ProjectLink = styled.a`
   font-size: 20px;
   color: #555555;
@@ -708,6 +729,18 @@ const Projects = () => {
                     <FiExternalLink />
                   </ProjectLink>
                 </ProjectLinks>
+                {project.toolLogos && project.toolLogos.length > 0 && (
+                  <ToolLogosContainer>
+                    {project.toolLogos.map((tool, index) => (
+                      <ToolLogoImage
+                        key={index}
+                        src={tool.logo}
+                        alt={tool.name}
+                        title={tool.name}
+                      />
+                    ))}
+                  </ToolLogosContainer>
+                )}
               </ProjectContent>
             </ProjectItem>
           ))}

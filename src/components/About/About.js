@@ -243,8 +243,8 @@ const AIToolCard = styled.div`
 `;
 
 const AIToolLogo = styled.img`
-  height: 70px;
-  width: 70px;
+  height: ${props => props.large ? '90px' : '70px'};
+  width: ${props => props.large ? '90px' : '70px'};
   margin-bottom: 20px;
   object-fit: contain;
 `;
@@ -354,9 +354,9 @@ const About = () => {
           </AboutText>
           <AIToolsGrid>
             <AIToolCard className="animate-on-scroll hidden">
-              <AIToolLogo src={`${process.env.PUBLIC_URL}/images/ai_tools/github_copilot_logo.png`} alt="GitHub Copilot" />
-              <AIToolName>GitHub Copilot</AIToolName>
-              <AIToolDescription>Expert at utilizing Copilot for code generation, completion, and optimization to accelerate development.</AIToolDescription>
+              <AIToolLogo large src={`${process.env.PUBLIC_URL}/images/ai_tools/vscode_copilot_logo.webp`} alt="GitHub Copilot & VS Code" />
+              <AIToolName>GitHub Copilot & VS Code</AIToolName>
+              <AIToolDescription>Expert at utilizing Copilot for code generation, completion, and optimization with VS Code AI extensions for intelligent workflows.</AIToolDescription>
             </AIToolCard>
             <AIToolCard className="animate-on-scroll hidden">
               <AIToolLogo src={`${process.env.PUBLIC_URL}/images/ai_tools/chat_gpt_logo.png`} alt="ChatGPT" />
@@ -374,9 +374,14 @@ const About = () => {
               <AIToolDescription>Skilled with Cursor's AI-powered editing capabilities to enhance code quality and development efficiency.</AIToolDescription>
             </AIToolCard>
             <AIToolCard className="animate-on-scroll hidden">
-              <AIToolLogo src={`${process.env.PUBLIC_URL}/images/ai_tools/visual_studio_code_logo.png`} alt="VS Code AI Extensions" />
-              <AIToolName>VS Code AI</AIToolName>
-              <AIToolDescription>Experienced with VS Code AI extensions that enhance coding productivity and enable intelligent workflows.</AIToolDescription>
+              <AIToolLogo src={`${process.env.PUBLIC_URL}/images/ai_tools/lovable_logo.png`} alt="Lovable" />
+              <AIToolName>Lovable</AIToolName>
+              <AIToolDescription>Proficient with Lovable for rapid AI-powered full-stack app development with beautiful, production-ready interfaces.</AIToolDescription>
+            </AIToolCard>
+            <AIToolCard className="animate-on-scroll hidden">
+              <AIToolLogo large src={`${process.env.PUBLIC_URL}/images/ai_tools/figma_make_logo.webp`} alt="Figma Make" />
+              <AIToolName>Figma Make</AIToolName>
+              <AIToolDescription>Skilled with Figma Make for AI-powered design-to-code generation, transforming Figma designs into production-ready code.</AIToolDescription>
             </AIToolCard>
           </AIToolsGrid>
         </AIToolsSection>

@@ -539,6 +539,27 @@ const ProjectLink = styled.a`
   }
 `;
 
+const ToolLogosContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+`;
+
+const ToolLogoImage = styled.img`
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.15);
+  }
+`;
+
 const AllProjects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeSubFilter, setActiveSubFilter] = useState(null);
@@ -702,6 +723,18 @@ const AllProjects = () => {
                   <FiExternalLink />
                 </ProjectLink>
               </ProjectLinks>
+              {project.toolLogos && project.toolLogos.length > 0 && (
+                <ToolLogosContainer>
+                  {project.toolLogos.map((tool, index) => (
+                    <ToolLogoImage
+                      key={index}
+                      src={tool.logo}
+                      alt={tool.name}
+                      title={tool.name}
+                    />
+                  ))}
+                </ToolLogosContainer>
+              )}
             </ProjectContent>
           </ProjectItem>
         ))}
