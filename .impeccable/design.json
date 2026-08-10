@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-11T00:00:00Z",
+  "title": "Design System: Muhammad Yasir Khan \u2014 Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal Orange",
+        "canonical": "#ff4d00",
+        "purpose": "The running state and the primary action. Never decoration.",
+        "tonalRamp": [
+          "oklch(24% 0.11 40)",
+          "oklch(34% 0.15 40)",
+          "oklch(44% 0.19 40)",
+          "oklch(54% 0.22 40)",
+          "oklch(64% 0.24 40)",
+          "oklch(74% 0.19 40)",
+          "oklch(85% 0.10 40)",
+          "oklch(95% 0.03 40)"
+        ]
+      },
+      "signal-deep": {
+        "role": "primary",
+        "displayName": "Signal Deep",
+        "canonical": "#d63f00",
+        "purpose": "Orange-tinted shadow spread and hover/error text. Never a fill."
+      },
+      "signal-wash": {
+        "role": "primary",
+        "displayName": "Signal Wash",
+        "canonical": "#ffe9e0",
+        "purpose": "Region tint for a current / failed callout, always with a signal border and a text label."
+      },
+      "success": {
+        "role": "secondary",
+        "displayName": "Validated Pipeline Green",
+        "canonical": "#0a6b45",
+        "purpose": "The completed state. Re-stepped up from #0f7a4f, which sat at protan deltaE 6.4 against the signal orange; #0a6b45 clears all six palette checks at 9.1. Do not step it back.",
+        "tonalRamp": [
+          "oklch(20% 0.06 163)",
+          "oklch(28% 0.08 163)",
+          "oklch(36% 0.09 163)",
+          "oklch(44% 0.10 163)",
+          "oklch(54% 0.11 163)",
+          "oklch(66% 0.10 163)",
+          "oklch(80% 0.07 163)",
+          "oklch(93% 0.03 163)"
+        ]
+      },
+      "success-wash": {
+        "role": "secondary",
+        "displayName": "Success Wash",
+        "canonical": "#dceee5",
+        "purpose": "Bordered confirmation region on the contact form only."
+      },
+      "queued": {
+        "role": "tertiary",
+        "displayName": "Queued Grey",
+        "canonical": "#8a8f96",
+        "purpose": "The not-yet-reached state. Only ever a 1px outline around a hollow square, plus the inactive carousel dot and the input hover border.",
+        "tonalRamp": [
+          "oklch(20% 0.008 250)",
+          "oklch(30% 0.010 250)",
+          "oklch(40% 0.012 250)",
+          "oklch(50% 0.014 250)",
+          "oklch(62% 0.014 250)",
+          "oklch(74% 0.012 250)",
+          "oklch(86% 0.008 250)",
+          "oklch(95% 0.004 250)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Graphite Canvas",
+        "canonical": "#e9eae4",
+        "purpose": "Page ground and theme-color. Carries the fixed 26px dot grid, and is the text colour on ink-filled surfaces.",
+        "tonalRamp": [
+          "oklch(20% 0.004 110)",
+          "oklch(31% 0.005 110)",
+          "oklch(42% 0.006 110)",
+          "oklch(53% 0.007 110)",
+          "oklch(65% 0.008 110)",
+          "oklch(78% 0.008 110)",
+          "oklch(89% 0.007 110)",
+          "oklch(96% 0.004 110)"
+        ]
+      },
+      "canvas-deep": {
+        "role": "neutral",
+        "displayName": "Canvas Deep",
+        "canonical": "#dedfd7",
+        "purpose": "The disabled-button ground. Declared once and used once, deliberately."
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Node Panel",
+        "canonical": "#fbfbf9",
+        "purpose": "Every node, card, figure, icon button and modal surface. Warm-white against the cool canvas."
+      },
+      "panel-sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Panel",
+        "canonical": "#f2f3ee",
+        "purpose": "Recessed regions inside a panel: image wells, input fields, bar tracks, row hover. Never gets a shadow."
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#14161a",
+        "purpose": "Primary text, structural borders on active and heading rules, the footer ground, and the fill behind task ids.",
+        "tonalRamp": [
+          "oklch(12% 0.010 260)",
+          "oklch(22% 0.012 260)",
+          "oklch(33% 0.014 260)",
+          "oklch(44% 0.014 260)",
+          "oklch(56% 0.012 260)",
+          "oklch(69% 0.010 260)",
+          "oklch(83% 0.007 260)",
+          "oklch(95% 0.004 260)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "#4a4f57",
+        "purpose": "Body copy (set by .t-body), secondary labels, icon rest state."
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "canonical": "#5b616a",
+        "purpose": "Meta, counters, captions, axis labels. Raised from #6b7178, which measured 4.12:1 on the canvas; used at 10-11px, so it holds 5.18:1 on canvas and 5.64:1 on the sunk panel. Do not lighten without re-measuring against both grounds."
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#cbcdc4",
+        "purpose": "Divides a node from the canvas and a node's header from its body."
+      },
+      "rule-soft": {
+        "role": "neutral",
+        "displayName": "Soft Hairline",
+        "canonical": "#dfe0d9",
+        "purpose": "Divides repeated rows within a node, and paints gridlines behind measured bars."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero h1 only, one per page. Archivo pushed to wdth 118 \u2014 the width axis is what gives this world its signage register, not extra weight."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Every node h2 and reduced-clamp sub-headings inside a node. wdth 112."
+      },
+      "card-title": {
+        "displayName": "Card Title",
+        "purpose": "Every h3 inside a node \u2014 project titles, company names, figure captions, modal titles. Archivo at default width; the width axis stops at the section level."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose. The 68ch measure and the ink-2 colour are part of the token, not applied per-instance."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Secondary prose in dense nodes \u2014 modal descriptions, role bullets, form inputs."
+      },
+      "body-compact": {
+        "displayName": "Body Compact",
+        "purpose": "The densest prose step \u2014 project-card summaries, executor descriptions, gantt company labels, block sub-headings, skill names, form status lines. The floor for card copy and table cells."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "The two micro strings that are prose rather than machine data (the carousel hint, the modal \"Built with\" label). Deliberately not .t-mono, which is reserved for ids, tags, states and tabular figures."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Every button, filter, tab and nav item. Archivo at wdth 104 / 650 / uppercase \u2014 mono is reserved for machine data, and a button set in mono is the costume version of this world."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Task ids, counters, categories, durations, axis labels. Tabular figures."
+      },
+      "mono-label": {
+        "displayName": "Mono Label",
+        "purpose": "State words, section micro-labels (stdout, operator, Graph), form field labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "node-rest",
+        "value": "0 1px 2px #14161a0a, 0 8px 20px -12px #14161a26",
+        "purpose": "Every .node. A 1px contact shadow plus a wide, tightly-spread ambient lift \u2014 always paired with a 1px border."
+      },
+      {
+        "name": "node-live",
+        "value": "0 1px 2px #14161a0f, 0 14px 34px -14px #14161a33",
+        "purpose": "The current unit: the running role card and both overlay panels. Darker border AND deeper lift together."
+      },
+      {
+        "name": "signal-rest",
+        "value": "0 1px 2px #14161a1f, 0 6px 14px -8px #d63f0099",
+        "purpose": "Primary button at rest. The lift is tinted with signal-deep so the orange reads as emitting."
+      },
+      {
+        "name": "signal-hover",
+        "value": "0 2px 4px #14161a24, 0 14px 26px -10px #d63f00a6",
+        "purpose": "Primary button hover, paired with translateY(-2px)."
+      },
+      {
+        "name": "signal-active",
+        "value": "0 1px 2px #14161a1f",
+        "purpose": "Primary button pressed; the lift collapses and the transform returns to 0."
+      },
+      {
+        "name": "header-condensed",
+        "value": "0 1px 0 0 #cbcdc4, 0 10px 28px -22px #14161a66",
+        "purpose": "The fixed run header once scrollY > 40. A hard hairline plus an extremely diffuse falloff \u2014 separates without appearing to hover."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-run",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for entrances, scroll reveals, and state transitions."
+      },
+      {
+        "name": "ease-step",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "The run-pulse state indicator only."
+      },
+      {
+        "name": "hero-in",
+        "value": "0.9s var(--ease-run) both \u2014 translateY(14px) + blur(6px) to rest, staggered 80ms + 110ms per row",
+        "purpose": "The single authored entrance, on the first viewport only. The only place blur is used in the system. Reused at 0.4s for the modal image swap."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity/transform 0.7s var(--ease-run), translateY(18px) to none",
+        "purpose": "One shared scroll reveal applied by IntersectionObserver. Carries three safeties: reduced motion, missing IntersectionObserver, and a 2500ms failsafe timer \u2014 because .reveal starts at opacity 0."
+      },
+      {
+        "name": "run-pulse",
+        "value": "1.6s var(--ease-step) infinite \u2014 opacity 1 to 0.35, scale 1 to 0.7",
+        "purpose": "The running-state indicator, and the only infinite animation on the page. Always bound to a live state."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce clamps all animation/transition to 0.001ms, disables smooth scroll, forces .reveal visible",
+        "purpose": "The run pre-completes: every node is marked success, stateOf never returns running, and the frame-stepper and carousel autoplay do not start. Nothing is hidden behind motion."
+      },
+      {
+        "name": "edge-flow",
+        "value": "@keyframes edge-flow { to { stroke-dashoffset: -18 } }",
+        "purpose": "DECLARED BUT UNUSED. Present in src/index.css and not drawn between sections anywhere in the build. Recorded as dead CSS, not as a shipping motion token."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "control-shrink",
+        "value": "420px (max-width)"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "container",
+        "value": "1440px (max)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Signal Button",
+      "kind": "button",
+      "refersTo": "button-signal",
+      "description": "The primary action. Solid signal orange with ink text, a hard 1px ink border, and an orange-tinted lift.",
+      "html": "<button class=\"ds-btn-signal\">View My Work</button>",
+      "css": ".ds-btn-signal { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-signal, #ff4d00); color: var(--color-ink, #14161a); border: 1px solid var(--color-ink, #14161a); border-radius: 0; padding: 0.8125rem 1.25rem; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-variation-settings: 'wdth' 104; font-size: 0.8125rem; font-weight: 650; letter-spacing: 0.055em; text-transform: uppercase; line-height: 1; cursor: pointer; box-shadow: 0 1px 2px #14161a1f, 0 6px 14px -8px #d63f0099; transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1), background-color 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-btn-signal:hover { transform: translateY(-2px); box-shadow: 0 2px 4px #14161a24, 0 14px 26px -10px #d63f00a6; } .ds-btn-signal:active { transform: translateY(0); box-shadow: 0 1px 2px #14161a1f; } .ds-btn-signal:focus-visible { outline: 2px solid var(--color-signal, #ff4d00); outline-offset: 3px; border-radius: 2px; } .ds-btn-signal:disabled { background: var(--color-canvas-deep, #dedfd7); color: var(--color-ink-3, #5b616a); border-color: var(--color-rule, #cbcdc4); box-shadow: none; transform: none; cursor: not-allowed; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The secondary action. Transparent with a 1px ink border; hover inverts to a solid ink fill.",
+      "html": "<button class=\"ds-btn-ghost\">Get In Touch</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--color-ink, #14161a); border: 1px solid var(--color-ink, #14161a); border-radius: 0; padding: 0.8125rem 1.25rem; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-variation-settings: 'wdth' 104; font-size: 0.8125rem; font-weight: 650; letter-spacing: 0.055em; text-transform: uppercase; line-height: 1; cursor: pointer; transition: background-color 0.25s cubic-bezier(0.16,1,0.3,1), color 0.25s cubic-bezier(0.16,1,0.3,1), transform 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover { background: var(--color-ink, #14161a); color: var(--color-canvas, #e9eae4); transform: translateY(-2px); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-signal, #ff4d00); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Node Panel",
+      "kind": "card",
+      "refersTo": "node",
+      "description": "The one container this world owns. Hard 1px rule plus a real offset-and-blur lift. Reserved for genuine units \u2014 a task, a job, a section \u2014 never wrapped around a paragraph and never nested.",
+      "html": "<article class=\"ds-node\"><header class=\"ds-node-head\"><span class=\"ds-node-id\">p01</span><span class=\"ds-node-state\"><span class=\"ds-sq-success\"></span>shipped</span><span class=\"ds-node-meta\">Agentic AI</span></header><div class=\"ds-node-body\"><h3 class=\"ds-node-title\">Agentic Mosaic</h3><p class=\"ds-node-copy\">A multi-agent orchestration surface with live task state.</p><ul class=\"ds-tags\"><li class=\"ds-tag\">Python</li><li class=\"ds-tag\">LangGraph</li><li class=\"ds-tag\">React</li></ul></div></article>",
+      "css": ".ds-node { position: relative; background: var(--color-panel, #fbfbf9); border: 1px solid var(--color-rule, #cbcdc4); border-radius: 0; box-shadow: 0 1px 2px #14161a0a, 0 8px 20px -12px #14161a26; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; } .ds-node-head { display: flex; align-items: center; gap: 0.625rem; border-bottom: 1px solid var(--color-rule, #cbcdc4); padding: 0.5rem 0.75rem; } .ds-node-id { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: var(--color-ink-3, #5b616a); } .ds-node-state { display: inline-flex; align-items: center; gap: 0.375rem; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-2, #4a4f57); } .ds-sq-success { display: block; width: 6px; height: 6px; background: var(--color-success, #0a6b45); } .ds-node-meta { margin-left: auto; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; color: var(--color-ink-3, #5b616a); } .ds-node-body { padding: 1.25rem; } .ds-node-title { margin: 0; font-size: 1.0625rem; font-weight: 600; line-height: 1.375; color: var(--color-ink, #14161a); } .ds-node-copy { margin: 0.5rem 0 0; font-size: 0.875rem; line-height: 1.625; color: var(--color-ink-2, #4a4f57); } .ds-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 1rem 0 0; padding: 0; list-style: none; } .ds-tag { display: inline-flex; align-items: center; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.625rem; letter-spacing: 0.02em; color: var(--color-ink-2, #4a4f57); background: var(--color-panel-sunk, #f2f3ee); border: 1px solid var(--color-rule-soft, #dfe0d9); border-radius: 0; padding: 0.1875rem 0.4375rem; white-space: nowrap; }"
+    },
+    {
+      "name": "Tech Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "A machine token, not a pill. Martian Mono on a sunk ground with a soft hairline, square corners, non-interactive.",
+      "html": "<ul class=\"ds-taglist\"><li class=\"ds-tag-solo\">TypeScript</li><li class=\"ds-tag-solo\">Tailwind v4</li></ul>",
+      "css": ".ds-taglist { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0; padding: 0; list-style: none; } .ds-tag-solo { display: inline-flex; align-items: center; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.625rem; letter-spacing: 0.02em; color: var(--color-ink-2, #4a4f57); background: var(--color-panel-sunk, #f2f3ee); border: 1px solid var(--color-rule-soft, #dfe0d9); border-radius: 0; padding: 0.1875rem 0.4375rem; white-space: nowrap; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "A recessed field that rises out of its well on focus. The global signal focus ring is suppressed here in favour of a border-and-ground shift.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-email\">Your Email</label><input class=\"ds-input\" id=\"ds-email\" type=\"email\" placeholder=\"you@example.com\" /></div>",
+      "css": ".ds-field { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; } .ds-label { display: block; margin-bottom: 0.375rem; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-2, #4a4f57); } .ds-input { width: 100%; box-sizing: border-box; border: 1px solid var(--color-rule, #cbcdc4); border-radius: 0; background: var(--color-panel-sunk, #f2f3ee); padding: 0.625rem 0.75rem; font-family: inherit; font-size: 0.9375rem; color: var(--color-ink, #14161a); transition: background-color 0.2s, border-color 0.2s; } .ds-input::placeholder { color: var(--color-ink-3, #5b616a); } .ds-input:hover { border-color: var(--color-queued, #8a8f96); } .ds-input:focus { border-color: var(--color-ink, #14161a); background: var(--color-panel, #fbfbf9); outline: none; } .ds-input:disabled { opacity: 0.6; }"
+    },
+    {
+      "name": "State Indicator",
+      "kind": "custom",
+      "refersTo": "port",
+      "description": "Run state never travels as colour alone: a pulsing circle is running, a filled square is success, a hollow outlined square is queued \u2014 and each carries a text label.",
+      "html": "<div class=\"ds-legend\"><span class=\"ds-legend-title\">State</span><span class=\"ds-legend-item\"><span class=\"ds-dot-queued\"></span>queued</span><span class=\"ds-legend-item\"><span class=\"ds-dot-running\"></span>running</span><span class=\"ds-legend-item\"><span class=\"ds-dot-success\"></span>shipped</span></div>",
+      "css": ".ds-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; font-family: 'Martian Mono', ui-monospace, monospace; } .ds-legend-title { font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-3, #5b616a); } .ds-legend-item { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.6875rem; letter-spacing: 0.02em; color: var(--color-ink-2, #4a4f57); } .ds-dot-queued { display: block; width: 6px; height: 6px; background: transparent; border: 1px solid var(--color-queued, #8a8f96); } .ds-dot-running { display: block; width: 6px; height: 6px; border-radius: 9999px; background: var(--color-signal, #ff4d00); animation: ds-run-pulse 1.6s cubic-bezier(0.65,0,0.35,1) infinite; } .ds-dot-success { display: block; width: 6px; height: 6px; background: var(--color-success, #0a6b45); } @keyframes ds-run-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } } @media (prefers-reduced-motion: reduce) { .ds-dot-running { animation: none; } }"
+    },
+    {
+      "name": "Task Header",
+      "kind": "nav",
+      "refersTo": "task-id-chip",
+      "description": "Every section opens as a task header: the ink-filled task id, the state dot with its word, an optional right-aligned mono meta value, all on a hard ink rule. The task id is one shared string printed identically by the heading, the graph rail and the mobile menu.",
+      "html": "<div class=\"ds-taskhead\"><div class=\"ds-taskhead-row\"><span class=\"ds-taskid\">t4.projects</span><span class=\"ds-taskstate\"><span class=\"ds-dot-run\"></span>running</span><span class=\"ds-taskmeta\">04 of 12 \u00b7 all shipped</span></div><h2 class=\"ds-taskheading\">My Projects</h2></div>",
+      "css": ".ds-taskhead { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; } .ds-taskhead-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; border-bottom: 1px solid var(--color-ink, #14161a); padding-bottom: 0.625rem; } .ds-taskid { display: inline-flex; align-items: center; background: var(--color-ink, #14161a); color: var(--color-canvas, #e9eae4); padding: 0.25rem 0.5rem; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; } .ds-taskstate { display: inline-flex; align-items: center; gap: 0.375rem; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-2, #4a4f57); } .ds-dot-run { display: block; width: 6px; height: 6px; border-radius: 9999px; background: var(--color-signal, #ff4d00); animation: ds-run-pulse 1.6s cubic-bezier(0.65,0,0.35,1) infinite; } .ds-taskmeta { margin-left: auto; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; color: var(--color-ink-3, #5b616a); } .ds-taskheading { margin: 1.25rem 0 0; font-variation-settings: 'wdth' 112; font-weight: 700; letter-spacing: -0.025em; line-height: 1; font-size: clamp(2.25rem, 6vw, 4rem); color: var(--color-ink, #14161a); }"
+    },
+    {
+      "name": "Graph Rail Row",
+      "kind": "nav",
+      "refersTo": "node",
+      "description": "The page's own dependency graph, drawn as a real graph. The edge between two nodes fills in solid only once the upstream node has actually been read, so the drawing reports progress instead of decorating it.",
+      "html": "<figure class=\"ds-dag\"><figcaption class=\"ds-dag-cap\"><span class=\"ds-dag-title\">Graph</span><span class=\"ds-dag-count\">6 tasks</span></figcaption><ul class=\"ds-dag-list\"><li class=\"ds-dag-row\"><span class=\"ds-dag-box\"><span class=\"ds-glyph-success\"></span></span><button class=\"ds-dag-btn\"><span class=\"ds-dag-id\">t1.about</span><span class=\"ds-dag-state\">ok</span></button></li><li class=\"ds-dag-edge ds-dag-edge-done\"></li><li class=\"ds-dag-row\"><span class=\"ds-dag-box ds-dag-box-live\"><span class=\"ds-glyph-running\"></span></span><button class=\"ds-dag-btn\"><span class=\"ds-dag-id ds-dag-id-live\">t2.skills</span><span class=\"ds-dag-state\">run</span></button></li><li class=\"ds-dag-edge\"></li><li class=\"ds-dag-row\"><span class=\"ds-dag-box\"><span class=\"ds-glyph-queued\"></span></span><button class=\"ds-dag-btn\"><span class=\"ds-dag-id\">t3.experience</span><span class=\"ds-dag-state\">\u2014</span></button></li></ul></figure>",
+      "css": ".ds-dag { margin: 0; width: 100%; max-width: 280px; background: var(--color-panel, #fbfbf9); border: 1px solid var(--color-rule, #cbcdc4); box-shadow: 0 1px 2px #14161a0a, 0 8px 20px -12px #14161a26; } .ds-dag-cap { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--color-rule, #cbcdc4); padding: 0.5rem 0.75rem; } .ds-dag-title { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-2, #4a4f57); } .ds-dag-count { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; color: var(--color-ink-3, #5b616a); } .ds-dag-list { margin: 0; padding: 0.75rem; list-style: none; } .ds-dag-row { display: flex; align-items: center; gap: 0.75rem; } .ds-dag-box { display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; background: var(--color-panel, #fbfbf9); border: 1px solid var(--color-rule, #cbcdc4); } .ds-dag-box-live { border-color: var(--color-ink, #14161a); } .ds-glyph-success { display: block; width: 8px; height: 8px; background: var(--color-success, #0a6b45); } .ds-glyph-queued { display: block; width: 8px; height: 8px; border: 1px solid var(--color-queued, #8a8f96); } .ds-glyph-running { display: block; width: 8px; height: 8px; border-radius: 9999px; background: var(--color-signal, #ff4d00); animation: ds-run-pulse 1.6s cubic-bezier(0.65,0,0.35,1) infinite; } .ds-dag-edge { width: 1px; height: 18px; margin-left: 11px; border-left: 1px dashed var(--color-rule, #cbcdc4); } .ds-dag-edge-done { border-left: 1.5px solid var(--color-ink, #14161a); border-left-style: solid; } .ds-dag-btn { display: flex; flex: 1; min-width: 0; align-items: baseline; justify-content: space-between; gap: 0.5rem; background: none; border: 0; border-bottom: 1px solid transparent; padding: 0.25rem 0; text-align: left; cursor: pointer; color: var(--color-ink-2, #4a4f57); transition: color 0.2s, border-color 0.2s; } .ds-dag-btn:hover { border-bottom-color: var(--color-rule, #cbcdc4); color: var(--color-ink, #14161a); } .ds-dag-btn:focus-visible { outline: 2px solid var(--color-signal, #ff4d00); outline-offset: 3px; } .ds-dag-id { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.02em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ds-dag-id-live { font-weight: 700; color: var(--color-ink, #14161a); } .ds-dag-state { flex-shrink: 0; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-3, #5b616a); }"
+    },
+    {
+      "name": "Measured Bar",
+      "kind": "custom",
+      "refersTo": "node",
+      "description": "A single measure carries a single hue. Quarter gridlines live inside the track so they measure the bars without cutting the labels; emphasis is a signal square marker plus label weight, never a second fill colour.",
+      "html": "<ul class=\"ds-bars\"><li class=\"ds-bar-row\"><div class=\"ds-bar-head\"><span class=\"ds-bar-label ds-bar-label-core\"><span class=\"ds-bar-mark\"></span>Python</span><span class=\"ds-bar-value\">90</span></div><div class=\"ds-bar-track\"><div class=\"ds-bar-fill\" style=\"width:90%\"></div></div></li><li class=\"ds-bar-row\"><div class=\"ds-bar-head\"><span class=\"ds-bar-label\">Docker</span><span class=\"ds-bar-value\">75</span></div><div class=\"ds-bar-track\"><div class=\"ds-bar-fill\" style=\"width:75%\"></div></div></li></ul>",
+      "css": ".ds-bars { margin: 0; padding: 0; list-style: none; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; } .ds-bar-row + .ds-bar-row { margin-top: 0.875rem; } .ds-bar-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.375rem; } .ds-bar-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 400; color: var(--color-ink-2, #4a4f57); } .ds-bar-label-core { font-weight: 600; color: var(--color-ink, #14161a); } .ds-bar-mark { display: block; width: 6px; height: 6px; flex-shrink: 0; background: var(--color-signal, #ff4d00); } .ds-bar-value { flex-shrink: 0; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; font-variant-numeric: tabular-nums; color: var(--color-ink-3, #5b616a); } .ds-bar-track { height: 6px; width: 100%; background: var(--color-panel-sunk, #f2f3ee); background-image: repeating-linear-gradient(to right, var(--color-rule-soft, #dfe0d9) 0 1px, transparent 1px 25%); } .ds-bar-fill { height: 100%; border-radius: 0 2px 2px 0; background: var(--color-ink, #14161a); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Run View",
+    "overview": "This surface is a pipeline orchestrator's run view rendered as a portfolio. The page is a canvas \u2014 a cool graphite ground (#e9eae4) carrying a fixed 26px dot grid \u2014 and everything that matters sits on it as a node: a near-white panel with a hard 1px ink-adjacent rule and a genuine offset-plus-blur lift. Sections are tasks with ids (t1.about \u2026 t6.contact), the visitor's scroll is the run, and each of twelve projects is a task that reports shipped. Nothing here is a metaphor applied as decoration; the run state is computed in src/hooks/useRun.ts and drives the header, the graph rail, and every section heading from one source.\n\nThe density is that of an instrument panel, not a marketing page. Hairlines are the primary structural device \u2014 a 1px rule separates almost every row of information, and headings sit on a full-width ink rule. Type does the shouting: Archivo's variable width axis is pushed to 118 for display and 112 for section headings, which gives the world a signage register that more weight alone could not. Martian Mono is confined to machine facts \u2014 ids, tags, states, counters, tabular figures. Colour is almost entirely absent until it means something: signal orange and success green are state, not accent.\n\nTwo things this refuses on purpose, and the refusals are visible in the build: the near-black terminal hero with a typing animation (the ground here is light, and the only authored entrance is a single 0.9s translate-and-deblur on the first viewport), and its opposite, the whitespace-and-serif minimal resume (there is no serif anywhere, no generous emptiness, and every claim is anchored to a live link or a measured bar).",
+    "keyCharacteristics": [
+      "Light graphite dot-grid canvas under near-white panels \u2014 light, not dark; cool, not warm.",
+      "Square by default. Radius appears in exactly three places, all functional.",
+      "Hairline-led structure: 1px rules do the work that shadows and cards do elsewhere.",
+      "Archivo variable pushed on the width axis, not just the weight axis.",
+      "Mono is machine voice only, and the boundary is enforced by a separate control role.",
+      "Run state is semantic colour + distinct shape + text label, always all three.",
+      "One authored entrance, one shared scroll reveal, one state pulse. That is the entire motion budget."
+    ],
+    "rules": [
+      {
+        "name": "The Semantic State Rule",
+        "body": "Signal orange, success green and queued grey mean running, success and queued. They are never used as decoration, never as a brand accent, and never to differentiate one category of content from another. The one place this was almost broken \u2014 the experience timeline \u2014 was corrected: those bars carry signal for the current role and success for finished ones, exactly as everywhere else.",
+        "section": "colors"
+      },
+      {
+        "name": "The Shape-Plus-Label Rule",
+        "body": "State never travels as colour alone. Every state indicator carries a distinct shape \u2014 a pulsing circle for running, a filled square for success, a hollow outlined square for queued \u2014 and sits next to a text label (run / ok / \u2014, or running / success / queued). A colour-only status dot is a defect, not a shorthand.",
+        "section": "colors"
+      },
+      {
+        "name": "The Validated Green Rule",
+        "body": "--color-success is #0a6b45. It was re-stepped up from #0f7a4f, which sat at protan deltaE 6.4 against the signal orange \u2014 inside the confusable band for the most common form of colour-vision deficiency, on a page where orange and green appear side by side in the same legend. #0a6b45 clears all six palette checks at 9.1. Do not step it back toward a brighter green.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-3 Floor Rule",
+        "body": "--color-ink-3 is #5b616a, raised from #6b7178, which measured 4.12:1 on the canvas. This token is used at 10\u201311px, so it has to clear the small-text floor with margin: the shipped value holds 5.18:1 on the canvas and 5.64:1 on the sunk panel. Any future lightening must be re-measured against both grounds, not just against white.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Boundary Rule",
+        "body": "Martian Mono is for ids, tags, states and tabular data. That is the whole list. Controls \u2014 buttons, filters, tabs, nav \u2014 use .t-control, which is Archivo at wdth 104 / 650 / uppercase. A button set in mono is the costume version of this world; real orchestration UIs do not do it, and neither does this one. This boundary is a rule, not an accident of implementation.",
+        "section": "typography"
+      },
+      {
+        "name": "The Width-Axis Rule",
+        "body": "Display presence comes from the width axis (118 \u2192 112 \u2192 104 as the register descends from hero to section to control), not from piling on weight. If a heading needs more presence, widen it before you embolden it.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Measure Rule",
+        "body": "Prose is capped at 68ch by .t-body itself. Never re-cap prose with an ad-hoc max-width utility; use .t-body and let the token hold the measure.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Container Rule",
+        "body": "Every top-level region uses max-width 1440px with 20px / 32px gutters. A new section that invents its own width breaks the vertical edge alignment that holds this page together.",
+        "section": "layout"
+      },
+      {
+        "name": "The Rule-Plus-Lift Rule",
+        "body": "Every raised surface carries both a 1px border and a blurred shadow. No hard offset shadows (this is not a neobrutalist world), and no borderless drop-shadow cards.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Portal Rule",
+        "body": "Both overlays \u2014 ProjectModal and the testimonial lightbox \u2014 are rendered with createPortal into document.body. Every NodeSection is relative z-10, which creates a stacking context; a fixed overlay rendered inside one resolves within that context and paints beneath the z-50 run header. Any future overlay must portal to document.body for the same reason.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square-By-Default Rule",
+        "body": "New surfaces get border-radius 0. Radius must be justified as a signal \u2014 a focus ring, a value's leading edge, or a running-state circle \u2014 never as softening.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Node Reservation Rule",
+        "body": ".node is reserved for genuine units: a task, a job, a section, a figure, an overlay panel. It is never wrapped around an individual paragraph or list item, and nodes are never nested. If content needs internal separation, use a rule-soft divider or a panel-sunk region, not a second node.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Never-Invisible Rule",
+        "body": "Any element that starts at opacity 0 must carry a non-observer path to visible. Reveal has three: reduced motion, a missing IntersectionObserver, and a 2500ms failsafe timer. A new entrance animation that can strand content blank is a bug, not a style.",
+        "section": "components"
+      },
+      {
+        "name": "The One Entrance Rule",
+        "body": "There is exactly one authored entrance (hero-in, first viewport) and one shared reveal below the fold. Do not add a second signature entrance for a new section; wrap it in Reveal.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do run every new section through NodeSection + NodeHeading with a real task id added to the nodes array in src/data/site.ts, so the header, the graph rail and the mobile menu pick it up automatically.",
+      "Do pair colour with a distinct shape and a text label for every state indicator \u2014 pulsing circle / filled square / hollow outlined square.",
+      "Do use .t-control for anything the visitor can press, and reserve .t-mono / .t-mono-label for ids, tags, states and tabular figures.",
+      "Do give raised surfaces both a 1px border and a blurred shadow, and use panel-sunk (not a shadow) for recessed regions.",
+      "Do portal any new fixed overlay to document.body \u2014 sections are relative z-10 and will trap it beneath the z-50 header.",
+      "Do wrap below-the-fold content in Reveal rather than authoring a new entrance.",
+      "Do cap prose with .t-body, which already holds the 68ch measure and the ink-2 colour.",
+      "Do keep object-contain on product screenshots; cropping them destroys the interface evidence that makes the claim credible.",
+      "Do re-measure contrast against both canvas (#e9eae4) and panel-sunk (#f2f3ee) before changing any ink token \u2014 white is not the ground here."
+    ],
+    "donts": [
+      "Don't use signal orange, success green or queued grey for anything that is not run state or a primary action. They are semantic tokens, not an accent palette.",
+      "Don't re-step --color-success toward a brighter green. #0f7a4f sat at protan deltaE 6.4 against the signal orange; #0a6b45 is the validated value.",
+      "Don't lighten --color-ink-3 past #5b616a \u2014 it is used at 10\u201311px and #6b7178 measured 4.12:1 on the canvas.",
+      "Don't set a button, filter, tab or nav item in Martian Mono. That is the costume version of this world.",
+      "Don't nest .node inside .node, or wrap .node around a single paragraph. Use a rule-soft divider or a panel-sunk region instead.",
+      "Don't add border-radius to a panel, button, input, tag or image. Radius is reserved for the focus ring, the leading edge of a measured bar, and the running-state circle.",
+      "Don't introduce a serif, a second sans, or a font loaded from an external CDN. Both faces are self-hosted npm packages, and the Archivo entry point must remain the one carrying the wdth axis.",
+      "Don't add blur outside the hero-in entrance and the existing overlay/header backdrop filters.",
+      "Don't add a second infinite animation. run-pulse is the only one, and it is bound to a live state.",
+      "Don't ship an element that starts hidden without a failsafe path to visible.",
+      "Don't hard-code an asset path. The site deploys to the /Portfolio/ subpath; all assets resolve through import.meta.env.BASE_URL."
+    ]
+  }
+}
