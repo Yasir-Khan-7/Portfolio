@@ -109,7 +109,10 @@ export function RunHeader({
               <span className="text-canvas/45" aria-hidden="true">
                 /
               </span>
-              <span className="tabular-nums">{activeTaskId}</span>
+              {/* normal-case: the chip is .t-mono-label (uppercase), but this id has
+                  to read character-for-character like the graph rail and the mobile
+                  menu print it. Same string, same casing, everywhere. */}
+              <span className="tabular-nums normal-case">{activeTaskId}</span>
             </span>
             <span className="hidden truncate t-mono-label text-ink-2 transition-colors group-hover:text-ink xl:block">
               {identity.name}

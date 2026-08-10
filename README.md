@@ -1,12 +1,15 @@
 # Muhammad Yasir Khan — Portfolio
 
-AI Engineer · Prompt Engineer · Vibe Coder
+AI Engineer · Forward Deployed Engineer · AI Software Engineer
 Live: https://yasir-khan-7.github.io/Portfolio/
 
 A rebuild of the portfolio in a pipeline-run visual world: sections are nodes on
-a canvas, each project is a task with real state, and the three roles read as
-duration bars on one shared time axis. All copy, projects, experience and links
-are carried over verbatim from the previous site.
+a canvas, each project is a task with real state, and every role reads as a
+duration bar on one shared time axis. Most copy is carried over verbatim from
+the previous site; the role titles, the newer experience entries and the
+Recently Delivered section were supplied directly and transcribed as given.
+
+The previous Create React App design is preserved on the `old-design` branch.
 
 ## Stack
 
