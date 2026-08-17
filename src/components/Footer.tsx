@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import { Mail } from 'lucide-react'
 import { Github, Linkedin } from './BrandIcons'
 import { identity, links, nodes, roleList } from '../data/site'
-import { scrollToNode } from '../hooks/useRun'
+import { useGoToNode } from '../hooks/useRun'
 
 const social = [
   { href: links.email, label: 'Email', Icon: Mail },
@@ -11,6 +12,10 @@ const social = [
 
 /** The run's exit block: every task succeeded, and the graph closes. */
 export function Footer() {
+  // The footer renders on every route, but these targets only exist on the home
+  // page — as plain scroll calls they did nothing at all from /projects.
+  const goToNode = useGoToNode()
+
   return (
     <footer className="relative z-10 mt-8 border-t border-ink bg-ink text-canvas">
       <div className="mx-auto max-w-[1440px] px-5 py-12 md:px-8 md:py-14">
@@ -32,12 +37,18 @@ export function Footer() {
               {nodes.map((n) => (
                 <button
                   key={n.id}
-                  onClick={() => scrollToNode(n.id)}
+                  onClick={() => goToNode(n.id)}
                   className="border-b border-transparent pb-0.5 t-control text-[0.6875rem] text-canvas/70 transition-colors hover:border-signal hover:text-canvas"
                 >
                   {n.label}
                 </button>
               ))}
+              <Link
+                to="/services"
+                className="border-b border-canvas/30 pb-0.5 t-control text-[0.6875rem] text-canvas transition-colors hover:border-signal"
+              >
+                Development services for agencies and startups
+              </Link>
             </nav>
           </div>
 

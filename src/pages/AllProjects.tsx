@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, LayoutGrid, Rows3 } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, LayoutGrid, Rows3 } from 'lucide-react'
 import {
   aiSubCategories,
   projectCategories,
   projects,
   type Project,
 } from '../data/projects'
+import { OG_IMAGE_HOME, PROJECTS_URL } from '../data/services'
 import { Footer } from '../components/Footer'
+import { Seo } from '../components/Seo'
 import { ProjectCard } from '../components/ProjectCard'
 import { ProjectModal } from '../components/ProjectModal'
 import { Reveal } from '../components/Reveal'
@@ -34,6 +36,13 @@ export default function AllProjects() {
 
   return (
     <>
+      <Seo
+        title="Projects | Muhammad Yasir Khan"
+        description="Selected AI, data engineering and full-stack builds, every one of them live and clickable, with source where it is public."
+        canonical={PROJECTS_URL}
+        image={OG_IMAGE_HOME}
+        imageAlt="Selected projects by Muhammad Yasir Khan"
+      />
       <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-canvas/92 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-[1440px] items-center gap-3 px-5 md:px-8">
           <Link
@@ -47,6 +56,13 @@ export default function AllProjects() {
           <span className="ml-auto t-mono text-ink-3">
             {String(filtered.length).padStart(2, '0')}/{String(projects.length).padStart(2, '0')}
           </span>
+          <Link
+            to="/services"
+            className="ml-1 hidden items-center gap-1.5 border border-ink px-2.5 py-1.5 t-control text-[0.6875rem] text-ink transition-colors hover:bg-ink hover:text-canvas sm:flex"
+          >
+            <span className="port shrink-0" aria-hidden="true" />
+            Services
+          </Link>
         </div>
       </header>
 
@@ -228,6 +244,19 @@ export default function AllProjects() {
             </table>
           </div>
         )}
+
+        <Reveal>
+          <div className="node mt-10 flex flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
+            <p className="min-w-0 text-[0.9375rem] leading-relaxed text-ink-2">
+              These are builds of my own. The same work for agencies, startups and first
+              portfolios runs as a defined engagement.
+            </p>
+            <Link to="/services" className="btn-signal shrink-0 self-start md:self-auto">
+              Hire me to build something like this
+              <ArrowUpRight size={14} strokeWidth={2.25} aria-hidden="true" />
+            </Link>
+          </div>
+        </Reveal>
 
         {open && <ProjectModal project={open} onClose={() => setOpen(null)} />}
       </main>

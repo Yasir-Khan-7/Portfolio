@@ -32,7 +32,7 @@ function DurationAxis() {
     <figure className="node p-5 md:p-6">
       <figcaption className="mb-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-rule pb-2.5">
         <h3 className="text-[1.0625rem] font-semibold text-ink">Timeline</h3>
-        <span className="t-mono text-ink-3">Jul 2023 — present · {experience.length} roles</span>
+        <span className="t-mono text-ink-3">Jul 2023 to present · {experience.length} roles</span>
       </figcaption>
 
       <div className="relative">
@@ -206,7 +206,7 @@ function RoleCard({ r, index }: { r: (typeof experience)[number]; index: number 
 export function Experience({ state }: { state: RunState }) {
   return (
     <NodeSection id="experience">
-      <NodeHeading taskId="t3.experience" state={state} meta={`${experience.length} roles · 2023 — present`}>
+      <NodeHeading taskId="t3.experience" state={state} meta={`${experience.length} roles · 2023 to present`}>
         Professional Experience
       </NodeHeading>
 

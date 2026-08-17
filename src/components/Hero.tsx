@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { identity } from '../data/derived'
 import { experience, roleList } from '../data/site'
@@ -97,7 +98,7 @@ export function Hero({ stateOf, reduced }: { stateOf: (id: string) => RunState; 
           moves down beside the intro instead. */}
       <h1 className="t-display text-[clamp(2rem,5.4vw,4.6rem)]">
         <span className="sr-only">
-          {identity.name} — {roleList.join(', ')}
+          {identity.name}: {roleList.join(', ')}
         </span>
         <span aria-hidden="true">
           <IdentityGraph reduced={reduced} />
@@ -143,6 +144,13 @@ export function Hero({ stateOf, reduced }: { stateOf: (id: string) => RunState; 
               Get In Touch
               <ArrowUpRight size={14} strokeWidth={2.25} aria-hidden="true" />
             </a>
+            {/* The other run. A route, so it carries a port rather than a state
+                dot — the same distinction the run header draws. */}
+            <Link to="/services" className="btn-ghost">
+              <span className="port shrink-0" aria-hidden="true" />
+              Freelance development services
+              <ArrowUpRight size={14} strokeWidth={2.25} aria-hidden="true" />
+            </Link>
           </div>
         </div>
 

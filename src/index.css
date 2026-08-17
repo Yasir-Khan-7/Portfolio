@@ -40,6 +40,24 @@
   --color-success-wash: #dceee5;
   --color-queued: #8a8f96;
 
+  /* ---------------------------------------------------------------------
+     THE GLAZED WALL — /services only.
+     A steel-framed glass partition: matte black glazing bars are the only
+     line ink, seeded and clear glass are the calm ground, and cobalt, amber
+     and oxblood are reserved for what matters now. These tokens are used by
+     that route alone; the portfolio's run-view palette above is untouched.
+     --------------------------------------------------------------------- */
+  --color-bar: #141414;
+  --color-glass: #f5f6f4;
+  --color-glass-seeded: #e9ece9;
+  --color-glass-ink: #161a18;
+  --color-glass-ink-2: #33383a;
+  --color-glass-ink-3: #5c6360;
+  --color-cobalt: #1442a6;
+  --color-cobalt-deep: #0e3179;
+  --color-amber: #c6871f;
+  --color-oxblood: #6e1f26;
+
   /* Type */
   --font-display: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
@@ -293,6 +311,209 @@
     border: 1px solid var(--color-rule-soft);
     padding: 0.1875rem 0.4375rem;
     white-space: nowrap;
+  }
+
+  /* --- The glazed wall (/services) ---------------------------------------- */
+
+  /* Display voice. The SAME Archivo the portfolio uses, driven to the opposite
+     end of its width axis: the run view pushes to 118 for signage, this pulls
+     to 62 for the tall condensed grotesque the glazier world is lettered in.
+     One variable font, two unrecognisably different voices, no new download. */
+  .g-display {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 62;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.004em;
+    line-height: 0.86;
+    color: var(--color-glass-ink);
+  }
+
+  .g-sub {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 78;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.012em;
+    line-height: 0.95;
+  }
+
+  /* Label voice: the small tracked caps stencilled onto a workshop drawing. */
+  .g-label {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 92;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .g-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-glass-ink-2);
+    max-width: 62ch;
+  }
+
+  /* Glass. Seeded glass is dimpled and scatters light; clear glass is nearly
+     flat with a faint roll. Both are drawn rather than imaged so they cost
+     nothing and stay crisp at any density. */
+  /* Seeded glass is the one with visible texture — that is what "seeded" means,
+     air bubbles caught in the sheet. Clear glass is nearly flat with the
+     faintest roll from the rolling table. An earlier pass had these the wrong
+     way round, which made the calm panes the busy ones. */
+  .g-seeded {
+    background-color: var(--color-glass-seeded);
+    background-image:
+      radial-gradient(circle at 20% 30%, #ffffffcc 0 1.2px, transparent 1.7px),
+      radial-gradient(circle at 68% 12%, #ffffffb3 0 1.5px, transparent 2.1px),
+      radial-gradient(circle at 41% 74%, #1414141a 0 1.1px, transparent 1.6px),
+      radial-gradient(circle at 87% 61%, #ffffffa6 0 1.1px, transparent 1.6px),
+      radial-gradient(circle at 8% 88%, #14141414 0 1.2px, transparent 1.8px);
+    background-size: 31px 31px, 43px 43px, 37px 37px, 52px 52px, 41px 41px;
+  }
+
+  .g-clear {
+    background-color: var(--color-glass);
+    background-image: repeating-linear-gradient(
+      104deg,
+      #ffffff00 0 34px,
+      #ffffff26 34px 41px,
+      #ffffff00 41px 78px
+    );
+  }
+
+  /* Coloured glass keeps the same roll, so a cobalt pane reads as the same
+     material as the clear one beside it rather than as a flat swatch. */
+  .g-tinted {
+    background-image: repeating-linear-gradient(
+        104deg,
+        #ffffff00 0 30px,
+        #ffffff14 30px 37px,
+        #ffffff00 37px 70px
+      ),
+      radial-gradient(circle at 30% 24%, #ffffff1a 0 1.2px, transparent 1.8px);
+    background-size:
+      auto,
+      46px 46px;
+  }
+
+  /* An open question goes clear: the light is on in that pane. Written as CSS
+     rather than a Tailwind variant because it swaps a whole material (the
+     seeded speckle for the clear roll), which no single utility can express. */
+  .g-faq-pane:has(details[open]) {
+    background-color: var(--color-glass);
+    background-image: repeating-linear-gradient(
+      104deg,
+      #ffffff00 0 34px,
+      #ffffff26 34px 41px,
+      #ffffff00 41px 78px
+    );
+    background-size: auto;
+  }
+
+  /* Controls, taken from the world's own component sheet: cobalt fill with a
+     hairline inset for primary, clear glass for secondary. Both sit in the
+     wall's bars, so neither carries a shadow — nothing floats in this world. */
+  .g-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 92;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 1rem 1.375rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    transition:
+      background-color 0.25s var(--ease-run),
+      color 0.25s var(--ease-run),
+      box-shadow 0.25s var(--ease-run);
+  }
+
+  .g-btn-primary {
+    background-color: var(--color-cobalt);
+    color: #fff;
+    box-shadow: inset 0 0 0 1px #ffffff3d;
+  }
+
+  .g-btn-primary:hover {
+    background-color: var(--color-cobalt-deep);
+    box-shadow: inset 0 0 0 2px #ffffff5c;
+  }
+
+  .g-btn-secondary {
+    background-color: var(--color-glass);
+    color: var(--color-glass-ink);
+  }
+
+  .g-btn-secondary:hover {
+    box-shadow: inset 0 0 0 2px var(--color-bar);
+  }
+
+  .g-btn:disabled {
+    background-color: var(--color-glass-seeded);
+    color: var(--color-glass-ink-3);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  /* Fields are panes too: clear glass, no radius, cobalt when the light is on
+     them. The global focus ring is suppressed here in favour of that. */
+  .g-field {
+    width: 100%;
+    background-color: var(--color-glass);
+    color: var(--color-glass-ink);
+    border: 1px solid #14141433;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9375rem;
+    transition:
+      border-color 0.2s var(--ease-run),
+      box-shadow 0.2s var(--ease-run);
+  }
+
+  .g-field::placeholder {
+    color: var(--color-glass-ink-3);
+  }
+
+  .g-field:hover {
+    border-color: #14141466;
+  }
+
+  .g-field:focus {
+    outline: none;
+    border-color: var(--color-cobalt);
+    box-shadow: inset 0 0 0 1px var(--color-cobalt);
+  }
+
+  /* The confirmation dialog's entrance. Two authored moves, both cheap: the
+     steel behind fades up, and the glass arrives from slightly below. Wrapped
+     in `motion-safe:` at the call site, and the global reduced-motion rule
+     clamps them regardless. */
+  @keyframes glaze-veil {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes glaze-lift {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   /* --- Motion ------------------------------------------------------------- */

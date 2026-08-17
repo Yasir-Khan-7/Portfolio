@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Mail, Menu, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight, Mail, Menu, X } from 'lucide-react'
 import { Github, Linkedin } from './BrandIcons'
 import { identity, links, nodes } from '../data/site'
 import { scrollToNode, type RunState } from '../hooks/useRun'
@@ -37,9 +38,12 @@ export function StateDot({ state, size = 7 }: { state: RunState; size?: number }
 export function RunHeader({
   stateOf,
   completed,
+  crossLink,
 }: {
   stateOf: (id: string) => RunState
   completed: number
+  /** A sibling route. A route change, so it is drawn as a link, never as a task. */
+  crossLink?: { to: string; label: string }
 }) {
   // The task the visitor is reading, for the header's live readout. Before the
   // first section is reached nothing is running yet, so the run reads as idle.
@@ -138,6 +142,18 @@ export function RunHeader({
                 </button>
               )
             })}
+            {/* The other run. Drawn with a port and an outbound arrow rather than
+                a state dot, because it is a route change, not a task in this run. */}
+            {crossLink && (
+              <Link
+                to={crossLink.to}
+                className="ml-1.5 flex items-center gap-1.5 border border-ink px-2.5 py-1.5 t-control text-[0.6875rem] text-ink transition-colors hover:bg-ink hover:text-canvas"
+              >
+                <span className="port shrink-0" aria-hidden="true" />
+                {crossLink.label}
+                <ArrowUpRight size={12} strokeWidth={2.25} aria-hidden="true" />
+              </Link>
+            )}
           </nav>
 
           <div className="ml-auto flex items-center gap-1 lg:ml-3">
@@ -175,7 +191,7 @@ export function RunHeader({
       {menuOpen && (
         <div className="fixed inset-0 z-60 flex flex-col bg-canvas lg:hidden">
           <div className="flex h-14 shrink-0 items-center justify-between border-b border-rule px-5">
-            <span className="t-mono-label text-ink-2">Run 001 · Sections</span>
+            <span className="t-mono-label text-ink-2">RUN 001 · Sections</span>
             <button
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
@@ -207,6 +223,24 @@ export function RunHeader({
                 </button>
               )
             })}
+            {crossLink && (
+              <Link
+                to={crossLink.to}
+                onClick={() => setMenuOpen(false)}
+                className="mt-4 flex items-baseline gap-3 border border-ink bg-panel px-3 py-3.5"
+              >
+                <span className="port shrink-0 self-center" aria-hidden="true" />
+                <span className="t-section text-[clamp(1.25rem,3vw,1.75rem)]">
+                  {crossLink.label}
+                </span>
+                <ArrowUpRight
+                  size={18}
+                  strokeWidth={2.25}
+                  aria-hidden="true"
+                  className="ml-auto shrink-0 self-center"
+                />
+              </Link>
+            )}
           </nav>
           <div className="flex shrink-0 items-center gap-2 border-t border-rule px-5 py-4">
             {social.map(({ href, label, Icon }) => (

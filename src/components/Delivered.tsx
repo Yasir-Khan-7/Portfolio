@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 import { delivered } from '../data/site'
 import type { RunState } from '../hooks/useRun'
@@ -110,7 +111,25 @@ export function Delivered({ state }: { state: RunState }) {
       </NodeHeading>
 
       <Reveal>
-        <p className="t-body -mt-4 mb-8">{delivered.intro}</p>
+        {/* The contextual route to /services sits here rather than in a banner:
+            this is the section where a client is already looking at paid work
+            that shipped, which is the moment the question becomes "and how
+            would you work with me?" */}
+        <p className="t-body -mt-4 mb-8">
+          {delivered.intro}{' '}
+          <Link
+            to="/services"
+            className="border-b border-rule text-ink underline-offset-4 transition-colors hover:border-ink"
+          >
+            how I work with clients
+            <ArrowUpRight
+              size={12}
+              strokeWidth={2.25}
+              aria-hidden="true"
+              className="ml-0.5 inline-block align-baseline"
+            />
+          </Link>
+        </p>
       </Reveal>
 
       <div className="space-y-6">

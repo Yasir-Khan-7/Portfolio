@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Served from https://yasir-khan-7.github.io/Portfolio/sitemap.xml.
+
+  A sitemap is valid for URLs at or below its own directory, so one at this
+  subpath covers the whole site. It cannot be advertised in a robots.txt: that
+  file is only read at the origin root, and https://yasir-khan-7.github.io/
+  belongs to a `yasir-khan-7.github.io` repository that does not exist. Submit
+  this file directly in Google Search Console instead.
+
+  No <changefreq> or <priority> — Google ignores both. No trailing slashes: the
+  build emits flat services.html and projects.html, which GitHub Pages serves
+  at these exact extensionless URLs with a 200 and no redirect.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yasir-khan-7.github.io/Portfolio/</loc>
+  </url>
+  <url>
+    <loc>https://yasir-khan-7.github.io/Portfolio/services</loc>
+  </url>
+  <url>
+    <loc>https://yasir-khan-7.github.io/Portfolio/projects</loc>
+  </url>
+</urlset>

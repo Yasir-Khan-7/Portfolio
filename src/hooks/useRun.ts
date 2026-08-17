@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { nodes } from '../data/site'
 
 export type RunState = 'queued' | 'running' | 'success'
@@ -66,6 +67,28 @@ export function useRunProgress(reduced: boolean) {
   }
 
   return { active, stateOf, completed: done.size }
+}
+
+/**
+ * Cross-page node navigation. The footer and the run header are rendered on
+ * every route, but `scrollToNode` can only reach a node that is mounted — on
+ * /services and /projects the home run's sections do not exist, so those links
+ * were silently doing nothing. This resolves the two cases: scroll when the node
+ * is on this page, otherwise route home first and scroll once it has mounted.
+ */
+export function useGoToNode() {
+  const navigate = useNavigate()
+
+  return (id: string, homePath = '/') => {
+    if (document.getElementById(id)) {
+      scrollToNode(id)
+      return
+    }
+    navigate(homePath)
+    // The target does not exist until the home route has painted. rAF runs after
+    // React commits the new route, which is the first moment the node is real.
+    requestAnimationFrame(() => requestAnimationFrame(() => scrollToNode(id)))
+  }
 }
 
 /** Smooth-scroll to a node, clearing the fixed run header. */

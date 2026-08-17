@@ -18,7 +18,7 @@ export const identity = {
   greeting: "Hello, I'm",
   roles: ['AI Engineer | Forward Deployed Engineer', 'AI Software Engineer'],
   intro:
-    'I turn complex problems into clear, actionable insights and build intelligent apps that make a real impact. I focus on seamless automation, a smooth developer experience, and practical delivery—reliable systems, flowing pipelines, and code that works.',
+    'I turn complex problems into clear, actionable insights and build intelligent apps that make a real impact. I focus on seamless automation, a smooth developer experience, and practical delivery: reliable systems, flowing pipelines, and code that works.',
   photo: `${BASE}images/profile/profile_pic.webp`,
 }
 
