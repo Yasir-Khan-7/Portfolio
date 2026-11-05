@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles/workbench.css"
+        ],
+        "createdAt": "2026-11-05T20:56:54.609Z",
+        "reason": "Claude: L151 is a full-width bottom progress fill on the data-pipeline demo steps (left:0;bottom:0;width:100%, scaleX animation), not a one-sided card border"
+      }
+    ]
+  }
+}

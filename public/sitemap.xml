@@ -9,15 +9,12 @@
   this file directly in Google Search Console instead.
 
   No <changefreq> or <priority> — Google ignores both. No trailing slashes: the
-  build emits flat services.html and projects.html, which GitHub Pages serves
+  build emits a flat projects.html, which GitHub Pages serves
   at these exact extensionless URLs with a 200 and no redirect.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yasir-khan-7.github.io/Portfolio/</loc>
-  </url>
-  <url>
-    <loc>https://yasir-khan-7.github.io/Portfolio/services</loc>
   </url>
   <url>
     <loc>https://yasir-khan-7.github.io/Portfolio/projects</loc>

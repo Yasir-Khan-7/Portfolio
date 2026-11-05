@@ -1,7 +1,7 @@
 /**
  * Structured data, in one place so the static HTML entries and the SPA cannot
  * disagree. vite.config.ts imports this at build time to bake the JSON-LD into
- * index.html and services.html; src/components/Seo.tsx uses the same functions
+ * index.html; src/components/Seo.tsx uses the same functions
  * to keep the head correct across client-side navigation.
  *
  * What is emitted, and why — checked against Google's 2026 documentation rather
@@ -14,7 +14,7 @@
  *                     — the sitelinks searchbox was retired in November 2024 and
  *                     there is no site search here to describe anyway.
  *   - ProfilePage     LIVE pairing for a personal site's home page.
- *   - Person, Service, OfferCatalog, WebPage
+ *   - Person
  *                     Entity signal only. No rich result exists for any of them
  *                     in 2026; they are here for entity resolution and for the
  *                     answer engines, which fetch pages but never execute their
@@ -35,7 +35,7 @@
  *     so there are none in the markup.
  */
 
-import { jobs, OG_IMAGE, SERVICES_URL, servicesSeo, SITE_URL } from './services.ts'
+import { SITE_URL } from './urls.ts'
 
 const PERSON_ID = `${SITE_URL}#person`
 const WEBSITE_ID = `${SITE_URL}#website`
@@ -76,68 +76,6 @@ export function homeJsonLd() {
           mainEntity: { '@id': PERSON_ID },
         },
         person,
-      ],
-    },
-  ]
-}
-
-export function servicesJsonLd() {
-  return [
-    {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'WebPage',
-          '@id': `${SERVICES_URL}#webpage`,
-          url: SERVICES_URL,
-          name: servicesSeo.title,
-          description: servicesSeo.description,
-          inLanguage: 'en',
-          primaryImageOfPage: OG_IMAGE,
-          isPartOf: { '@id': WEBSITE_ID },
-          about: { '@id': PERSON_ID },
-          breadcrumb: { '@id': `${SERVICES_URL}#breadcrumb` },
-        },
-        {
-          '@type': 'BreadcrumbList',
-          '@id': `${SERVICES_URL}#breadcrumb`,
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-            { '@type': 'ListItem', position: 2, name: 'Services' },
-          ],
-        },
-        {
-          ...person,
-          knowsAbout: [
-            'Full-stack development',
-            'React',
-            'React Native',
-            'TypeScript',
-            'Python',
-            'Large language models',
-            'Generative AI',
-            'Supabase',
-            'Docker',
-            'AWS',
-            'ETL pipelines',
-            'Power BI',
-          ],
-          hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: 'Development services',
-            // Generated from the same array the page renders, so the markup can
-            // never describe an offer the visible page does not make.
-            itemListElement: jobs.map((j) => ({
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: j.name,
-                description: j.summary,
-                provider: { '@id': PERSON_ID },
-              },
-            })),
-          },
-        },
       ],
     },
   ]

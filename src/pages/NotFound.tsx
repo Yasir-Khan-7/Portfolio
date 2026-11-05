@@ -7,10 +7,9 @@ import { Footer } from '../components/Footer'
  * The wildcard route used to render Home, which was a real problem rather than a
  * cosmetic one. The 404 shim rewrites any unknown path to `/Portfolio/?/whatever`,
  * which GitHub Pages answers with a 200 — so every mistyped or stale URL became
- * an indexable duplicate of the home page. Worse, once /services is served as its
- * own static file, a wildcard rendering Home would let React replace that
- * server-rendered markup with the home page the moment it hydrated: a crawler
- * would read a services page in the HTML and a home page after rendering.
+ * an indexable duplicate of the home page. Worse, /projects is served as its own
+ * static file, and a wildcard rendering Home would let React replace that
+ * server-rendered markup with the home page the moment it hydrated.
  *
  * So this route exists, and it noindexes itself. The tag has to be injected at
  * runtime because there is no server here to set it per response.
@@ -70,10 +69,6 @@ export default function NotFound() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link to="/" className="btn-signal">
             Back to the portfolio
-            <ArrowUpRight size={14} strokeWidth={2.25} aria-hidden="true" />
-          </Link>
-          <Link to="/services" className="btn-ghost">
-            Services
             <ArrowUpRight size={14} strokeWidth={2.25} aria-hidden="true" />
           </Link>
           <Link to="/projects" className="btn-ghost">
