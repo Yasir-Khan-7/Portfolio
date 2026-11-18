@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/favicon.ico", "destination": "/icon.png", "permanent": false },
     { "source": "/projects", "destination": "/work?tab=personal", "permanent": true },
     { "source": "/Portfolio", "destination": "/", "permanent": true },
     { "source": "/Portfolio/:path*", "destination": "/:path*", "permanent": true }
