@@ -126,13 +126,13 @@ export const about = {
   // REPO (site.ts about.competencies)
   competencies: [
     { name: 'AI-Driven Software Development', tone: 'blue' },
-    { name: 'Natural Language Processing' },
+    { name: 'AI Agents' },
     { name: 'Business Intelligence & Analytics' },
-    { name: 'Database Management', tone: 'green' },
+    { name: 'Cloud & DevOps', tone: 'green' },
     { name: 'Industrial Automation' },
-    { name: 'Data Pipeline Engineering' },
-    { name: 'Frontend Web Solutions', tone: 'peach' },
-    { name: 'Data Visualization' },
+    { name: 'Data Engineering' },
+    { name: 'Full Stack Web Applications', tone: 'peach' },
+    { name: 'Mobile Apps' },
   ],
 }
 
