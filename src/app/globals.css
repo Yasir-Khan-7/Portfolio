@@ -510,47 +510,95 @@ button {
 }
 
 /* ---------- Footer ---------- */
-.site-footer {
-  padding-top: clamp(32px, 4vw, 56px);
-  overflow: hidden;
+[id] {
+  scroll-margin-top: 104px;
 }
-.site-footer__row {
+.site-footer {
+  padding-top: clamp(24px, 3vw, 40px);
+  padding-bottom: 28px;
+}
+.footer-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 2.6fr);
+  gap: clamp(32px, 5vw, 72px);
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--r-block);
+  background: var(--white);
+  border: 1px solid var(--hairline);
+}
+.footer-brand {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 16px;
+}
+.footer-brand__line {
+  color: var(--muted);
+  max-width: 24em;
+}
+.footer-brand__status {
+  margin: 0;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+.footer-nav__title {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.footer-nav ul {
+  display: grid;
+  gap: 10px;
+}
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s var(--ease);
+}
+.footer-nav a:hover {
+  background-size: 100% 1px;
+}
+.footer-bottom {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 24px;
+  gap: 10px 24px;
+  padding: 22px 8px 0;
+  font-size: 12px;
   color: var(--muted);
 }
-.site-footer__social {
-  display: flex;
-  flex-wrap: wrap;
-}
-.site-footer__social a:hover,
-.site-footer__top:hover {
+.footer-bottom__top {
   color: var(--ink);
+}
+.footer-bottom__top:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-.site-footer__top {
-  color: var(--ink);
+@media (max-width: 1080px) {
+  .footer-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
-.wordmark {
-  height: clamp(58px, 11.4vw, 176px);
-  overflow: hidden;
-  margin-top: clamp(20px, 3vw, 40px);
-  padding-inline: var(--gutter);
-  text-align: center;
-}
-.wordmark span {
-  display: block;
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: clamp(64px, 15.6vw, 240px);
-  letter-spacing: -0.06em;
-  line-height: 0.8;
-  white-space: nowrap;
-  color: var(--ink);
+@media (max-width: 640px) {
+  .footer-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+  .footer-bottom__where {
+    display: none;
+  }
 }
 
 /* ---------- Marquee ---------- */

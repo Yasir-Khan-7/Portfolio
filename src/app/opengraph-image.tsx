@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const dynamic = 'force-static'
-export const alt = 'Yasir Khan — I ship AI systems from first call to production.'
+export const alt = 'Yasir Khan: I ship AI systems from first call to production.'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -18,7 +18,7 @@ export default function OgImage() {
           <span>from first call to</span>
           <span style={{ color: '#2E86C1' }}>production.</span>
         </div>
-        <div style={{ display: 'flex', fontSize: 26, color: '#5C5C5C', letterSpacing: 2 }}>AI ENGINEER · FORWARD DEPLOYED ENGINEER</div>
+        <div style={{ display: 'flex', fontSize: 26, color: '#5C5C5C', letterSpacing: 2 }}>FORWARD DEPLOYED ENGINEER</div>
       </div>
     ),
     size,

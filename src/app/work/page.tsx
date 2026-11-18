@@ -9,7 +9,7 @@ import { pageMeta } from '@/lib/site'
 export const metadata = pageMeta({
   title: 'Work',
   description:
-    'Client systems taken from first commit to production — Otenga, Dr. Madikha Khan, Bebé Noura, Orbit Digital, Pak Sadat — and the personal projects where I try things first.',
+    'Client systems taken from first commit to production (Otenga, Dr. Madikha Khan, Bebé Noura, Orbit Digital, Pak Sadat) and the personal projects where I try things first.',
   path: '/work',
 })
 

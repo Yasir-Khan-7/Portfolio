@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { reviewMarks, testimonials } from '@/content/site'
 import { asset } from '@/lib/site'
 
-/** "What people say." — average rating card plus a stacked, auto-advancing review carousel. */
+/** "What people say.": average rating card plus a stacked, auto-advancing review carousel. */
 export function Reviews() {
   const [order, setOrder] = useState(() => testimonials.map((_, n) => n))
   const [out, setOut] = useState<number | null>(null)

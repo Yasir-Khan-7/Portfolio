@@ -1,32 +1,112 @@
-import { links } from '@/content/site'
+import Link from 'next/link'
+import { links, nav } from '@/content/site'
+import { asset } from '@/lib/site'
+import { ArrowUpRight } from './icons'
+
+const homeSections = [
+  { href: '/#client-work', label: 'Client work' },
+  { href: '/#stories', label: 'Success stories' },
+  { href: '/#what-i-do', label: 'What I do' },
+  { href: '/#about', label: 'About' },
+  { href: '/#testimonials', label: 'Testimonials' },
+]
+
+const projectLinks = [
+  { href: '/work', label: 'Client launches' },
+  { href: '/work?tab=personal', label: 'Personal projects' },
+  { href: '/work/top-of-mind', label: 'Top of Mind case study' },
+]
 
 export function Footer() {
-  const socials = [
-    { label: 'LinkedIn', href: links.linkedin },
-    { label: 'GitHub', href: links.github },
-    { label: 'Instagram', href: links.instagram },
+  const connect = [
+    { label: 'Email', href: `mailto:${links.email}`, external: false },
+    { label: 'LinkedIn', href: links.linkedin, external: true },
+    { label: 'GitHub', href: links.github, external: true },
+    { label: 'Instagram', href: links.instagram, external: true },
   ].filter((s) => s.href)
 
   return (
     <footer className="site-footer">
-      <div className="wrap site-footer__row">
-        <p className="mono">© 2026 Muhammad Yasir Khan</p>
-        <ul className="site-footer__social mono">
-          {socials.map((s, i) => (
-            <li key={s.label}>
-              {i > 0 && <span aria-hidden="true">&nbsp;·&nbsp;</span>}
-              <a href={s.href} target="_blank" rel="noopener noreferrer">
-                {s.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a href="#top" className="mono site-footer__top">
-          Back to top <span aria-hidden="true">↑</span>
-        </a>
-      </div>
-      <div className="wordmark" aria-hidden="true">
-        <span>YASIR KHAN</span>
+      <div className="wrap">
+        <div className="footer-card">
+          <div className="footer-brand">
+            <Link href="/" className="brand">
+              <img className="brand__photo" src={asset('/images/profile/profile_pic.webp')} alt="" width={36} height={36} loading="lazy" />
+              Yasir Khan
+            </Link>
+            <p className="footer-brand__line">Forward Deployed Engineer. Data &amp; AI Engineer at Data Panda.</p>
+            <p className="status-pill footer-brand__status">
+              <span className="status-dot" aria-hidden="true" />
+              Available for new projects
+            </p>
+            <Link href="/contact" className="btn btn--ink btn--sm">
+              Start a project <ArrowUpRight />
+            </Link>
+          </div>
+
+          <nav className="footer-nav" aria-label="Footer">
+            <div>
+              <h2 className="mono footer-nav__title">Pages</h2>
+              <ul>
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                {nav.map((n) => (
+                  <li key={n.href}>
+                    <Link href={n.href}>{n.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="mono footer-nav__title">On the home page</h2>
+              <ul>
+                {homeSections.map((s) => (
+                  <li key={s.href}>
+                    <Link href={s.href}>{s.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="mono footer-nav__title">Projects</h2>
+              <ul>
+                {projectLinks.map((s) => (
+                  <li key={s.href}>
+                    <Link href={s.href}>{s.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="mono footer-nav__title">Connect</h2>
+              <ul>
+                {connect.map((s) => (
+                  <li key={s.label}>
+                    <a href={s.href} {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                      {s.label}
+                      {s.external && (
+                        <>
+                          {' '}
+                          <ArrowUpRight size={12} />
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div className="footer-bottom mono">
+          <p>© 2026 Muhammad Yasir Khan</p>
+          <p className="footer-bottom__where">Based in Pakistan · UTC+5</p>
+          <a href="#top" className="footer-bottom__top">
+            Back to top <span aria-hidden="true">↑</span>
+          </a>
+        </div>
       </div>
     </footer>
   )

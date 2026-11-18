@@ -49,7 +49,7 @@ function Story({ s }: { s: (typeof stories)[number] }) {
   )
 }
 
-/** "Results for teams." — Sideline figures as rings, then two story cards that expand. */
+/** "Results for teams.": Sideline figures as rings, then two story cards that expand. */
 export function Stories() {
   return (
     <div className="stories">

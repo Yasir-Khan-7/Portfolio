@@ -1,4 +1,4 @@
-# Yasir Khan — Portfolio (Next.js)
+# Yasir Khan: Portfolio (Next.js)
 
 AI Engineer · Forward Deployed Engineer. Next.js 16 (App Router), static export,
 deployable to GitHub Pages or Vercel.

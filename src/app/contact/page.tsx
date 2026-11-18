@@ -4,7 +4,7 @@ import { pageMeta } from '@/lib/site'
 
 export const metadata = pageMeta({
   title: 'Contact',
-  description: "Tell me what you need built — an AI agent, a data pipeline, a web or mobile app — and I'll come back with a plan, a timeline and a first build.",
+  description: "Tell me what you need built, whether an AI agent, a data pipeline, or a web or mobile app, and I'll come back with a plan, a timeline and a first build.",
   path: '/contact',
 })
 

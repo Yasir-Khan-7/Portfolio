@@ -22,7 +22,7 @@ export default function HomePage() {
       <Hero />
       <Marquee />
 
-      <section className="wrap section" aria-labelledby="client-work-title">
+      <section id="client-work" className="wrap section" aria-labelledby="client-work-title">
         <SectionHead
           id="client-work-title"
           label="(01) Client work"
@@ -48,7 +48,7 @@ export default function HomePage() {
         <ClientCards />
       </section>
 
-      <section className="wrap section section--flush" aria-labelledby="stories-title">
+      <section id="stories" className="wrap section section--flush" aria-labelledby="stories-title">
         <SectionHead
           id="stories-title"
           label="(02) Success stories"
@@ -58,7 +58,7 @@ export default function HomePage() {
         <Stories />
       </section>
 
-      <section className="dark-section" aria-labelledby="what-i-do-title">
+      <section id="what-i-do" className="dark-section" aria-labelledby="what-i-do-title">
         <div className="wrap section">
           <SectionHead
             id="what-i-do-title"
@@ -73,7 +73,7 @@ export default function HomePage() {
             accent="the whole stack."
             aside={
               <p className="on-ink-2">
-                Forward deployed means I work inside the client&rsquo;s problem — scoping, architecture, code and
+                Forward deployed means I work inside the client&rsquo;s problem: scoping, architecture, code and
                 rollout come from the same person.
               </p>
             }
@@ -93,7 +93,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="wrap section about-teaser" aria-labelledby="about-teaser-title">
+      <section id="about" className="wrap section about-teaser" aria-labelledby="about-teaser-title">
         <div data-reveal>
           <p className="label">(04) About</p>
           <h2 id="about-teaser-title" className="h-display about-teaser__title">
@@ -115,7 +115,7 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section className="wrap section section--flush" aria-labelledby="reviews-title">
+      <section id="testimonials" className="wrap section section--flush" aria-labelledby="reviews-title">
         <SectionHead id="reviews-title" label="(05) Testimonials" title="What people" accent="say." />
         <Reviews />
       </section>

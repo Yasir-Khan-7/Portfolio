@@ -21,7 +21,7 @@ export const links = {
   github: 'https://github.com/Yasir-Khan-7', // REPO
   // TODO(yasir): Instagram URL. The footer shows it once this is set.
   instagram: '' as string,
-  formspree: 'https://formspree.io/f/mwplnrda', // REPO — the existing form endpoint
+  formspree: 'https://formspree.io/f/mwplnrda', // REPO: the existing form endpoint
 }
 
 export const nav = [
@@ -35,13 +35,13 @@ export const nav = [
 /* ---------- Home ---------- */
 
 export const hero = {
-  label: 'AI Engineer · Forward Deployed Engineer',
+  label: 'Forward Deployed Engineer',
   headline: ['I ship AI systems', 'from first call', 'to '],
   accent: 'production.',
-  lede: 'Data & AI Engineer at Data Panda. I build client systems end to end — agents, data pipelines, web and mobile — for teams across the UK, the Netherlands and Belgium.',
+  // REPO (previous hero intro, verbatim): what problems get solved.
+  lede: 'I turn complex problems into clear, actionable insights and build intelligent apps that make a real impact. I focus on seamless automation, a smooth developer experience, and practical delivery: reliable systems, flowing pipelines, and code that works.',
   facts: [
     { k: 'Based in', v: 'Pakistan · UTC+5' },
-    { k: 'Working with', v: 'UK · NL · BE' },
     { k: 'Focus', v: 'Agents, data, full-stack' },
   ],
   medal: 'Silver medal · Software Engineering',
@@ -157,7 +157,7 @@ export const trusted = [
   'Sysbi Solutions',
 ]
 
-// REPO (home.ts reviews) — transcribed from the review screenshots. Do not edit.
+// REPO (home.ts reviews), transcribed from the review screenshots. Do not edit.
 export const testimonials = [
   {
     quote:

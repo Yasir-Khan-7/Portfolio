@@ -151,7 +151,7 @@ export type PersonalProject = {
 export const personalProjects: PersonalProject[] = [
   {
     id: 'iesa',
-    title: 'IESA – Intelligent Energy Scenario Analysis',
+    title: 'IESA: Intelligent Energy Scenario Analysis',
     description: 'Advanced energy planning tool for data-driven decision-making with AI-powered insights',
     fullDescription:
       'IESA is an advanced energy planning tool designed to support data-driven decision-making for energy planners and input entry operators. By leveraging AI, machine learning, and advanced data processing techniques, IESA empowers users to analyze energy trends, generate predictive insights, and streamline planning workflows. Key features include personalized AI-driven recommendations, prediction engine using advanced regression models, dynamic scenario analysis, simplified data planning & input, and automated PDF reporting.',

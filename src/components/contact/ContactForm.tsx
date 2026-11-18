@@ -132,7 +132,7 @@ export function ContactForm() {
 
       <div className="brief__foot">
         <p className="brief__status" role="status" aria-live="polite">
-          {status === 'sent' && 'Thanks — your message is on its way. I’ll reply by email.'}
+          {status === 'sent' && 'Thanks, your message is on its way. I’ll reply by email.'}
           {status === 'error' && (
             <>
               That didn’t send. Please email <a href={`mailto:${links.email}`}>{links.email}</a> instead.
