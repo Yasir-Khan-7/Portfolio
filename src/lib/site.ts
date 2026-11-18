@@ -3,12 +3,11 @@ import type { Metadata } from 'next'
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 /**
  * Canonical URL for SEO and link previews. An explicit NEXT_PUBLIC_SITE_URL wins
- * (the GitHub Pages workflow sets it); on Vercel it follows the project's
- * production domain, so attaching a custom domain and redeploying is enough.
+ * (the GitHub Pages workflow sets it); any Vercel build uses the custom domain.
  */
-const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL
+export const DOMAIN_URL = 'https://developwithyasir.com'
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? (vercelDomain ? `https://${vercelDomain}` : 'https://yasir-khan-7.github.io/Portfolio')
+  process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL ? DOMAIN_URL : 'https://yasir-khan-7.github.io/Portfolio')
 ).replace(/\/$/, '')
 
 /** Prefixes a /public path with the base path. Next only does this for <Link>, not <img>. */
