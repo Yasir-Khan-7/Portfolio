@@ -25,7 +25,7 @@ const personJsonLd = {
   jobTitle: 'Data & AI Engineer',
   worksFor: { '@type': 'Organization', name: 'Data Panda' },
   url: `${SITE_URL}/`,
-  sameAs: ['https://www.linkedin.com/in/yasir-khan7134/', 'https://github.com/Yasir-Khan-7'],
+  sameAs: ['https://www.linkedin.com/in/yasir-khan7134/', 'https://github.com/Yasir-Khan-7', 'https://www.instagram.com/yasirkhan.dev'],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

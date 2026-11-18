@@ -769,3 +769,56 @@ button {
     transform: none;
   }
 }
+
+/* ---------- Social logo buttons ---------- */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--hairline);
+  background: var(--white);
+  color: var(--ink);
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+.social:hover {
+  color: var(--white);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+.social--linkedin:hover {
+  background: #0a66c2;
+}
+.social--github:hover {
+  background: #181717;
+}
+.social--instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c 30%, #dc2743 55%, #cc2366 75%, #bc1888);
+}
+.social:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.footer-nav__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .social:hover {
+    transform: none;
+  }
+}

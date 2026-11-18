@@ -19,8 +19,7 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/yasir-khan7134/', // REPO
   linkedinLabel: 'linkedin.com/in/yasir-khan7134',
   github: 'https://github.com/Yasir-Khan-7', // REPO
-  // TODO(yasir): Instagram URL. The footer shows it once this is set.
-  instagram: '' as string,
+  instagram: 'https://www.instagram.com/yasirkhan.dev', // given by Yasir
   formspree: 'https://formspree.io/f/mwplnrda', // REPO: the existing form endpoint
 }
 

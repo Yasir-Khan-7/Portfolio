@@ -1,3 +1,4 @@
+import { Socials } from '@/components/site/Socials'
 import { ContactForm } from '@/components/contact/ContactForm'
 import { brief, links } from '@/content/site'
 import { pageMeta } from '@/lib/site'
@@ -38,8 +39,10 @@ export default function ContactPage() {
             </dd>
           </div>
           <div>
-            <dt className="mono">Working with</dt>
-            <dd>UK · Netherlands · Belgium</dd>
+            <dt className="mono">Follow</dt>
+            <dd>
+              <Socials />
+            </dd>
           </div>
         </dl>
       </div>

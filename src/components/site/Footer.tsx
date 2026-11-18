@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { links, nav } from '@/content/site'
 import { asset } from '@/lib/site'
 import { ArrowUpRight } from './icons'
+import { GithubLogo, InstagramLogo, LinkedinLogo, MailIcon, Socials } from './Socials'
 
 const homeSections = [
   { href: '/#client-work', label: 'Client work' },
@@ -19,10 +20,10 @@ const projectLinks = [
 
 export function Footer() {
   const connect = [
-    { label: 'Email', href: `mailto:${links.email}`, external: false },
-    { label: 'LinkedIn', href: links.linkedin, external: true },
-    { label: 'GitHub', href: links.github, external: true },
-    { label: 'Instagram', href: links.instagram, external: true },
+    { label: 'Email', href: `mailto:${links.email}`, external: false, Icon: MailIcon },
+    { label: 'LinkedIn', href: links.linkedin, external: true, Icon: LinkedinLogo },
+    { label: 'GitHub', href: links.github, external: true, Icon: GithubLogo },
+    { label: 'Instagram', href: links.instagram, external: true, Icon: InstagramLogo },
   ].filter((s) => s.href)
 
   return (
@@ -42,6 +43,7 @@ export function Footer() {
             <Link href="/contact" className="btn btn--ink btn--sm">
               Start a project <ArrowUpRight />
             </Link>
+            <Socials />
           </div>
 
           <nav className="footer-nav" aria-label="Footer">
@@ -83,7 +85,8 @@ export function Footer() {
               <ul>
                 {connect.map((s) => (
                   <li key={s.label}>
-                    <a href={s.href} {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                    <a className="footer-nav__social" href={s.href} {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                      {s.Icon && <s.Icon size={14} />}
                       {s.label}
                       {s.external && (
                         <>
