@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    { "source": "/projects", "destination": "/work?tab=personal", "permanent": true },
+    { "source": "/Portfolio", "destination": "/", "permanent": true },
+    { "source": "/Portfolio/:path*", "destination": "/:path*", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
+    }
+  ]
+}

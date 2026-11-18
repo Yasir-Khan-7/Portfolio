@@ -2,11 +2,13 @@ import Link from 'next/link'
 import { CtaBand } from '@/components/site/CtaBand'
 import { topOfMind as t } from '@/content/site'
 import { pageMeta } from '@/lib/site'
+import { Crumbs } from '@/components/seo/Crumbs'
 
 export const metadata = pageMeta({
-  title: 'Case study: Top of Mind',
+  title: 'Top of Mind Case Study: Agentic Capture App',
   description:
     'Agentic capture for voice, text and photos: agent workflows that pull contacts, tasks and relationship context out of raw inputs, on iOS and Android.',
+  keywords: ['AI agent case study', 'agentic workflows', 'voice capture app', 'LLM mobile app', 'Top of Mind app'],
   path: '/work/top-of-mind',
 })
 
@@ -20,6 +22,7 @@ export default function TopOfMindPage() {
           </Link>
           <span aria-hidden="true">/</span> {t.breadcrumb}
         </p>
+        <Crumbs trail={[{ name: 'Work', path: '/work' }, { name: 'Top of Mind', path: '/work/top-of-mind' }]} />
         <h1 id="tom-title" className="h-display h-xl rise" style={{ ['--i' as string]: 1 }}>
           {t.headline}
           <br />

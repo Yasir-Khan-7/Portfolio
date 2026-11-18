@@ -4,8 +4,11 @@ import { pageMeta } from '@/lib/site'
 
 export const metadata = pageMeta({
   title: 'Journal',
-  description: 'Notes from the workbench: short write-ups on agents, forward deployed work and industrial data. First posts coming soon.',
+  description:
+    'Notes from the workbench: short write-ups on agents, forward deployed work and industrial data. First posts coming soon.',
+  keywords: ['AI engineering blog'],
   path: '/journal',
+  noindex: true,
 })
 
 function Cover({ kind }: { kind: (typeof posts)[number]['cover'] }) {

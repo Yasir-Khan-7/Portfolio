@@ -5,11 +5,13 @@ import { PersonalGrid } from '@/components/work/PersonalGrid'
 import { WorkTabs } from '@/components/work/WorkTabs'
 import { clients, personalProjects } from '@/content/projects'
 import { pageMeta } from '@/lib/site'
+import { Crumbs } from '@/components/seo/Crumbs'
 
 export const metadata = pageMeta({
-  title: 'Work',
+  title: 'Portfolio: AI Apps, Client Websites & Data Projects',
   description:
-    'Client systems taken from first commit to production (Otenga, Dr. Madikha Khan, Bebé Noura, Orbit Digital, Pak Sadat) and the personal projects where I try things first.',
+    'Client systems taken from first commit to production (Otenga, Dr. Madikha Khan, Bebé Noura, Orbit Digital, Pak Sadat), plus personal AI, data and tooling projects.',
+  keywords: ['AI engineer portfolio', 'AI app examples', 'client website projects', 'data engineering projects', 'Next.js portfolio', 'AI agent projects'],
   path: '/work',
 })
 
@@ -19,6 +21,7 @@ export default function WorkPage() {
     <>
       <section className="wrap page-hero" aria-labelledby="work-title">
         <p className="label rise">(Work) Client launches · Personal projects</p>
+        <Crumbs trail={[{ name: 'Work', path: '/work' }]} />
         <h1 id="work-title" className="h-display h-xl rise" style={{ ['--i' as string]: 1 }}>
           Things I&rsquo;ve built
           <br />

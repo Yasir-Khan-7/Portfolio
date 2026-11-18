@@ -6,11 +6,13 @@ import { Reviews } from '@/components/home/Reviews'
 import { about, career, trusted } from '@/content/site'
 import { asset } from '@/lib/site'
 import { pageMeta } from '@/lib/site'
+import { Crumbs } from '@/components/seo/Crumbs'
 
 export const metadata = pageMeta({
-  title: 'About',
+  title: 'About Muhammad Yasir Khan, Data & AI Engineer',
   description:
-    'Software engineer focused on data-driven applications and intelligent systems. Data & AI Engineer at Data Panda, working with teams across the UK, the Netherlands and Belgium.',
+    'Software engineer focused on data-driven applications and intelligent systems. Forward Deployed Engineer and Data & AI Engineer at Data Panda, based in Pakistan.',
+  keywords: ['Muhammad Yasir Khan', 'Yasir Khan AI engineer', 'Data and AI Engineer', 'forward deployed engineer', 'software engineer Pakistan'],
   path: '/about',
 })
 
@@ -31,6 +33,7 @@ export default function AboutPage() {
       <section className="wrap page-hero about-hero" aria-labelledby="about-title">
         <div>
           <p className="label rise">(About me)</p>
+          <Crumbs trail={[{ name: 'About', path: '/about' }]} />
           <h1 id="about-title" className="h-display h-xl rise" style={{ ['--i' as string]: 1 }}>
             {about.headline[0]}
             <br />

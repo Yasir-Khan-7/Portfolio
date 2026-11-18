@@ -12,7 +12,8 @@ import { pageMeta } from '@/lib/site'
 export const metadata = pageMeta({
   title: 'Yasir Khan · AI Engineer & Forward Deployed Engineer',
   description:
-    'I ship AI systems from first call to production. Data & AI Engineer at Data Panda, building agents, data pipelines, web and mobile for teams across the UK, the Netherlands and Belgium.',
+    'Forward Deployed Engineer building AI agents, LLM apps, data pipelines and full stack web and mobile apps. I take client systems from first call to production.',
+  keywords: ['Yasir Khan', 'Muhammad Yasir Khan', 'Develop with Yasir', 'AI engineer', 'forward deployed engineer', 'AI agent developer', 'LLM app developer', 'data engineer', 'full stack developer', 'freelance AI engineer'],
   path: '/',
 })
 

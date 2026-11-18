@@ -18,9 +18,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      # Project site at https://<user>.github.io/Portfolio/. Change both if the repo name changes.
+      # Old address. It stays up only to forward visitors and search engines to developwithyasir.com.
       NEXT_PUBLIC_BASE_PATH: /Portfolio
-      NEXT_PUBLIC_SITE_URL: https://yasir-khan-7.github.io/Portfolio
+      NEXT_PUBLIC_SITE_URL: https://developwithyasir.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

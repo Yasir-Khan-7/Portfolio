@@ -1,11 +1,13 @@
 import { CtaBand } from '@/components/site/CtaBand'
 import { aiTools, processSteps, services } from '@/content/site'
 import { pageMeta } from '@/lib/site'
+import { Crumbs } from '@/components/seo/Crumbs'
 
 export const metadata = pageMeta({
-  title: 'Services',
+  title: 'AI Agent, Data & Full Stack Development Services',
   description:
-    'What I build: AI agents and LLM apps, data pipelines and reporting, and end-to-end delivery from first commit to production.',
+    'Hire me to build AI agents and LLM apps, data pipelines and reporting, or a full stack web or mobile app, delivered end to end from first commit to production.',
+  keywords: ['AI agent development services', 'LLM app development', 'data pipeline development', 'data engineering services', 'full stack web development', 'mobile app development', 'hire AI engineer'],
   path: '/services',
 })
 
@@ -66,6 +68,7 @@ export default function ServicesPage() {
     <>
       <section className="wrap page-hero" aria-labelledby="services-title">
         <p className="label rise">(Services)</p>
+        <Crumbs trail={[{ name: 'Services', path: '/services' }]} />
         <h1 id="services-title" className="h-display h-xl rise" style={{ ['--i' as string]: 1 }}>
           What I <em className="accent-serif">build.</em>
         </h1>
