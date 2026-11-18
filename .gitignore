@@ -1,7 +1,10 @@
 node_modules
-dist
-*.local
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
 .DS_Store
+.env*.local
 .vscode/*
 !.vscode/extensions.json
 

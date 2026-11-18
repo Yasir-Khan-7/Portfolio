@@ -1,66 +1,45 @@
-# Muhammad Yasir Khan — Portfolio
+# Yasir Khan — Portfolio (Next.js)
 
-AI Engineer · Forward Deployed Engineer · AI Software Engineer
-Live: https://yasir-khan-7.github.io/Portfolio/
-
-A rebuild of the portfolio in a pipeline-run visual world: sections are nodes on
-a canvas, each project is a task with real state, and every role reads as a
-duration bar on one shared time axis. Most copy is carried over verbatim from
-the previous site; the role titles, the newer experience entries and the
-Recently Delivered section were supplied directly and transcribed as given.
-
-The previous Create React App design is preserved on the `old-design` branch.
-
-## Stack
-
-| | |
-|---|---|
-| Build | Vite 8 |
-| UI | React 19 + TypeScript |
-| Styling | Tailwind CSS v4 (CSS-first `@theme`, no config file) |
-| Icons | lucide-react, plus authored SVG brand marks |
-| Fonts | Archivo Variable + Martian Mono, self-hosted via Fontsource |
-| Routing | react-router-dom |
-| Forms | Formspree (no backend) |
-
-Design decisions are recorded in [DESIGN.md](DESIGN.md); product truth lives in
-`../PRODUCT.md`.
+AI Engineer · Forward Deployed Engineer. Next.js 16 (App Router), static export,
+deployable to GitHub Pages or Vercel.
 
 ## Develop
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173/Portfolio/
-npm run build    # type-check + production build to dist/
-npm run preview  # serve the production build
+npm run dev -- -p 4310      # http://localhost:4310
+npm run build               # static site in out/
+npm run shots               # re-capture client-site screenshots (Playwright)
 ```
 
-## Deploy to GitHub Pages
+## Deploy
 
-The site is served from the `/Portfolio/` project subpath — `base` in
-`vite.config.ts` and `basename` on the router both depend on it. If you rename
-the repository, change both.
+- **GitHub Pages** (`https://yasir-khan-7.github.io/Portfolio/`): push to `main`;
+  `.github/workflows/deploy.yml` builds with `NEXT_PUBLIC_BASE_PATH=/Portfolio`
+  and publishes `out/`. Settings → Pages → Source → GitHub Actions.
+- **Vercel / any root domain**: import the repo, no env vars needed. Set
+  `NEXT_PUBLIC_SITE_URL` to the final domain so canonicals and OG tags match.
 
-**Recommended — GitHub Actions.** Push to `main`; `.github/workflows/deploy.yml`
-builds and publishes. Enable it once under *Settings → Pages → Source →
-GitHub Actions*.
+## Where things live
 
-**Manual.**
+| | |
+|---|---|
+| `src/content/site.ts` | every word on the site: hero, services, about, career, testimonials, case study, journal, contact |
+| `src/content/projects.ts` | the 5 client launches (cards) and 12 personal projects, with every screenshot for the details modal |
+| `src/app/globals.css` | design tokens (`:root`), shell: header, footer, buttons, motion |
+| `src/app/cards.css` | the ProjectCard layout + the 5 client themes and scene animations |
+| `src/app/sections.css` | page sections |
+| `src/components/project-card/` | `ProjectCard` (shared shell), `Devices` (laptop/phone), `scenes.tsx` (one scene per client) |
+| `public/images/clients/` | fresh Playwright captures of the 4 public client sites |
+| `public/images/projects/` | personal-project screenshots (modal gallery); `covers/` holds the small grid covers |
 
-```bash
-npm run deploy   # builds, then pushes dist/ to the gh-pages branch
-```
+**Pak Sadat is a private client system.** Its card is an HTML/CSS mock-up with
+invented demo data only. Never screenshot it or add real records.
 
-`public/404.html` carries the spa-github-pages redirect shim so a deep link to
-`/Portfolio/projects` resolves; `public/.nojekyll` stops Jekyll from eating
-asset paths.
+## TODO (needs Yasir)
 
-## Content
-
-Everything editable lives in two files:
-
-- `src/data/site.ts` — identity, links, about, AI tools, skills, experience,
-  testimonials, contact copy
-- `src/data/projects.ts` — the twelve projects and the filter taxonomy
-
-Screenshots are in `public/images/`, converted to WebP (37 MB → 3 MB).
+- [ ] Instagram URL → `links.instagram` in `src/content/site.ts` (footer hides it until set)
+- [ ] SkillGuard and Charaghan personal projects (left out; tab shows 12)
+- [ ] "Web" filter: no project is tagged Web yet, so the filter is hidden
+- [ ] Dataventiv case study page (the "Next case study" link shows "Coming soon")
+- [ ] Journal posts (all three marked "Coming soon")

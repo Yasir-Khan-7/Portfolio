@@ -17,6 +17,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Project site at https://<user>.github.io/Portfolio/. Change both if the repo name changes.
+      NEXT_PUBLIC_BASE_PATH: /Portfolio
+      NEXT_PUBLIC_SITE_URL: https://yasir-khan-7.github.io/Portfolio
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,10 +29,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: touch out/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: out
 
   deploy:
     needs: build
