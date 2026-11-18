@@ -35,7 +35,7 @@ export function Footer() {
               <img className="brand__photo" src={asset('/images/profile/profile_pic.webp')} alt="" width={36} height={36} loading="lazy" />
               Yasir Khan
             </Link>
-            <p className="footer-brand__line">Forward Deployed Engineer. Data &amp; AI Engineer at Data Panda.</p>
+            <p className="footer-brand__line">Forward Deployed Engineer.</p>
             <p className="status-pill footer-brand__status">
               <span className="status-dot" aria-hidden="true" />
               Available for new projects
