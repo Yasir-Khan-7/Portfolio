@@ -28,7 +28,7 @@ export function Header() {
       <div className="wrap">
         <div className="nav-pill">
           <Link href="/" className="brand" aria-label="Yasir Khan, home">
-            <img className="brand__photo" src={asset('/images/profile/profile_pic.webp')} alt="" width={36} height={36} />
+            <img className="brand__photo" src={asset('/images/profile/profile_pic.webp')} alt="" width={40} height={40} />
             Yasir Khan
           </Link>
 

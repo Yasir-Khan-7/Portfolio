@@ -317,7 +317,7 @@ button {
   box-shadow: 0 0 0 0 rgba(31, 157, 91, 0.5);
 }
 
-/* ---------- Header: floating pill ---------- */
+/* ---------- Header: floating pill (solid white, as on the previous site) ---------- */
 .site-header {
   position: sticky;
   top: 12px;
@@ -325,19 +325,28 @@ button {
   margin-top: 12px;
   margin-bottom: 8px;
 }
+/* Page-coloured fade behind the pill so scrolled content never peeks above or around it. */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: -12px 0 -18px;
+  background: linear-gradient(to bottom, var(--bg) 62%, color-mix(in srgb, var(--bg) 0%, transparent));
+  pointer-events: none;
+  z-index: -1;
+}
 .nav-pill {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 64px;
-  padding: 8px 8px 8px 10px;
-  border-radius: 20px;
-  border: 1px solid var(--hairline);
-  background: color-mix(in srgb, var(--white) 88%, transparent);
-  backdrop-filter: saturate(1.4) blur(14px);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px);
-  box-shadow: 0 14px 34px -22px rgba(10, 10, 10, 0.32);
+  min-height: 68px;
+  padding: 10px 10px 10px 12px;
+  border-radius: 24px;
+  border: 1px solid rgba(10, 10, 10, 0.06);
+  background: var(--white);
+  box-shadow:
+    0 1px 2px rgba(10, 10, 10, 0.04),
+    0 18px 40px -24px rgba(10, 10, 10, 0.28);
 }
 .brand {
   display: inline-flex;
@@ -345,28 +354,29 @@ button {
   gap: 12px;
   font-family: var(--f-display);
   font-weight: 600;
-  font-size: 19px;
+  font-size: 20px;
   letter-spacing: -0.03em;
   white-space: nowrap;
 }
 .brand__photo {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   object-fit: cover;
   background: var(--surface);
 }
 .site-nav ul {
   display: flex;
-  gap: 2px;
+  gap: 4px;
 }
 .site-nav a {
+  position: relative;
   display: block;
-  padding: 9px 14px;
+  padding: 10px 14px;
   border-radius: 12px;
   font-family: var(--f-body);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--muted);
   transition:
     color 0.2s,
@@ -378,7 +388,18 @@ button {
 }
 .site-nav a[aria-current='page'] {
   color: var(--ink);
-  background: var(--surface);
+  font-weight: 600;
+}
+.site-nav a[aria-current='page']::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: var(--ink);
 }
 .site-header__end {
   display: flex;
@@ -386,9 +407,10 @@ button {
   gap: 8px;
 }
 .site-header__cta {
-  border-radius: 14px;
-  min-height: 46px;
-  padding-inline: 20px;
+  border-radius: 16px;
+  min-height: 48px;
+  padding-inline: 22px;
+  font-size: 16px;
 }
 .site-header .status-pill {
   border-radius: 14px;
