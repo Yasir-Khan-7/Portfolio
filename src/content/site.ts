@@ -242,7 +242,7 @@ export const journalTopics = ['Agents', 'Career', 'Data', 'Forward deployed work
 
 // REPO (home.ts brief)
 export const brief = {
-  needs: ['AI agent', 'LLM app', 'Data pipeline', 'Dashboard', 'Web app', 'Mobile app', 'Hosting & deployment'],
+  needs: ['AI agent', 'LLM app', 'Data pipeline', 'Dashboard', 'Web app', 'Mobile app', 'Hosting & deployment', 'Something else'],
   timelines: ['This month', 'Next 1–3 months', 'Just exploring'],
   intro:
     "Pick what fits and I'll draft the message for you. I'm currently available for freelance work and open to new opportunities.",
