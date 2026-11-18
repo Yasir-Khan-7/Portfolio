@@ -51,10 +51,7 @@ export default function AboutPage() {
           </div>
         </div>
         <figure className="portrait rise" style={{ ['--i' as string]: 2 }}>
-          <img src={asset('/images/profile/profile_pic.webp')} alt="Muhammad Yasir Khan" width={800} height={800} />
-          <figcaption className="portrait__badge mono">
-            <span className="status-dot" aria-hidden="true" /> shipped to production
-          </figcaption>
+          <img src={asset('/images/profile/yasir-portrait.webp')} alt="Muhammad Yasir Khan" width={400} height={400} />
         </figure>
       </section>
 
